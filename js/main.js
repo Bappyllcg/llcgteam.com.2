@@ -18,6 +18,34 @@
   };
 
   /* ============================================================
+     0. LENIS SMOOTH MOMENTUM SCROLL (AGENCY-GRADE INERTIA)
+  ============================================================ */
+  let lenisInstance = null;
+  function initLenis() {
+    if (typeof Lenis !== 'undefined') {
+      lenisInstance = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        smoothWheel: true,
+        wheelMultiplier: 1.0,
+        touchMultiplier: 1.5,
+      });
+
+      function raf(time) {
+        lenisInstance.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      lenisInstance.on('scroll', () => {
+        $(window).trigger('scroll');
+      });
+    }
+  }
+
+  /* ============================================================
      1. CUSTOM MAGNETIC CURSOR
   ============================================================ */
   function initCursor() {
@@ -121,6 +149,8 @@
     const $orbit = $('.hero-orbit-circle');
     const $cross1 = $('.constellation-1');
     const $cross2 = $('.constellation-2');
+    const $ribbon = $('.ribbon-text');
+    const $scrollIndicator = $('.hero-scroll-indicator');
 
     if (!$sculpture.length) return;
 
@@ -144,11 +174,21 @@
 
     $(window).on('scroll', function () {
       const scrollY = window.scrollY;
-      if (scrollY < window.innerHeight) {
+      if (scrollY < window.innerHeight * 1.3) {
         $sculpture.css({
-          transform: `translate3d(0, calc(-50% + ${scrollY * 0.35}px), 0)`,
-          opacity: Math.max(0, 0.9 - (scrollY / window.innerHeight) * 1.2)
+          transform: `translate3d(0, calc(-50% + ${scrollY * 0.38}px), 0)`
         });
+        $orbit.css({
+          transform: `translate3d(0, calc(-50% + ${scrollY * 0.18}px), 0)`
+        });
+        $cross1.css({
+          transform: `translate3d(0, ${scrollY * 0.25}px, 0)`
+        });
+        $cross2.css({
+          transform: `translate3d(0, ${scrollY * -0.15}px, 0)`
+        });
+        $ribbon.css({ opacity: Math.max(0, 1 - scrollY / 260) });
+        $scrollIndicator.css({ opacity: Math.max(0, 1 - scrollY / 200) });
       }
     });
   }
@@ -222,22 +262,44 @@
   }
 
   /* ============================================================
-     4. FEATURED WORK SCROLL ENTRY & CURTAIN REVEAL
+     4. UNIVERSAL SCROLL REVEAL OBSERVER & CURTAIN REVEALS
   ============================================================ */
-  function initWorksReveal() {
-    const $containers = $('.image-container');
-    if (!$containers.length) return;
+  function initScrollObserver() {
+    const targets = document.querySelectorAll('.reveal-fade-up, .reveal-scale, .reveal-mask, .image-container');
+    if (!targets.length) return;
 
-    const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          $(entry.target).addClass('show');
+          const $el = $(entry.target);
+          $el.addClass('is-revealed show');
+          obs.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.15 });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -50px 0px'
+    });
 
-    $containers.each(function () {
-      observer.observe(this);
+    targets.forEach(t => observer.observe(t));
+  }
+
+  /* ============================================================
+     4B. ASYMMETRICAL WORKS COLUMN PARALLAX
+  ============================================================ */
+  function initColumnParallax() {
+    const $col2 = $('.works-list .column-2');
+    const $work = $('#work');
+    if (!$col2.length || !$work.length || window.innerWidth < 769) return;
+
+    $(window).on('scroll', function () {
+      const scrollY = window.scrollY;
+      const workTop = $work.offset().top;
+      const workHeight = $work.outerHeight();
+      if (scrollY + window.innerHeight > workTop && scrollY < workTop + workHeight) {
+        const delta = (scrollY - workTop) * 0.07;
+        $col2.css({ transform: `translate3d(0, ${delta}px, 0)` });
+      }
     });
   }
 
@@ -366,13 +428,14 @@
     const $counters = $('.counter-val');
     if (!$counters.length) return;
 
-    let hasRun = false;
-    const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting && !hasRun) {
-          hasRun = true;
-          $counters.each(function () {
+        if (entry.isIntersecting) {
+          const $target = $(entry.target);
+          $target.find('.counter-val').addBack('.counter-val').each(function () {
             const $this = $(this);
+            if ($this.data('counted')) return;
+            $this.data('counted', true);
             const target = parseFloat($this.attr('data-target'));
             const suffix = $this.attr('data-suffix') || '';
             const isFloat = target % 1 !== 0;
@@ -395,12 +458,18 @@
             }
             requestAnimationFrame(updateCount);
           });
+          obs.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.3 });
+    }, { threshold: 0.25 });
 
-    const statsSection = document.getElementById('statsSection');
-    if (statsSection) observer.observe(statsSection);
+    // Observe stats sections or counter containers
+    const $statSections = $('#statsSection, .stats-container, .grid:has(.counter-val)');
+    if ($statSections.length) {
+      $statSections.each(function () { observer.observe(this); });
+    } else {
+      $counters.each(function () { observer.observe(this); });
+    }
   }
 
   /* ============================================================
@@ -494,6 +563,78 @@
   }
 
   /* ============================================================
+     8C. ONE-CLICK EMAIL COPY & TOAST FEEDBACK
+  ============================================================ */
+  function initCopyEmail() {
+    let toastTimer = null;
+
+    $(document).on('click', '[data-copy-email]', function (e) {
+      e.preventDefault();
+      const email = $(this).attr('data-copy-email') || $(this).text().trim() || 'hello@llcgteam.com';
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).then(() => {
+          showToast(email);
+        }).catch(() => {
+          fallbackCopy(email);
+        });
+      } else {
+        fallbackCopy(email);
+      }
+    });
+
+    function fallbackCopy(text) {
+      const $temp = $('<textarea>');
+      $('body').append($temp);
+      $temp.val(text).select();
+      document.execCommand('copy');
+      $temp.remove();
+      showToast(text);
+    }
+
+    function showToast(text) {
+      let $activeToast = $('#copyFeedbackToast');
+      if (!$activeToast.length) {
+        $('body').append(`
+          <div id="copyFeedbackToast" class="copy-feedback-toast">
+            <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            <span>COPIED TO CLIPBOARD: ${text}</span>
+          </div>
+        `);
+        $activeToast = $('#copyFeedbackToast');
+      }
+      $activeToast.find('span').text(`COPIED TO CLIPBOARD: ${text}`);
+      $activeToast.addClass('show');
+
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        $activeToast.removeClass('show');
+      }, 2500);
+    }
+  }
+
+  /* ============================================================
+     8D. EXECUTIVE FAQ ACCORDION
+  ============================================================ */
+  function initFaqAccordion() {
+    $(document).on('click', '.faq-trigger', function () {
+      const $item = $(this).closest('.contact-faq-item');
+      const $body = $item.find('.faq-body');
+      const isActive = $item.hasClass('active');
+
+      $('.contact-faq-item').not($item).removeClass('active').find('.faq-body').slideUp(300);
+
+      if (isActive) {
+        $item.removeClass('active');
+        $body.slideUp(300);
+      } else {
+        $item.addClass('active');
+        $body.slideDown(300);
+      }
+    });
+  }
+
+  /* ============================================================
      10. BAUNFIRE STAGGERED ROLLING BUTTONS & PILL BUTTONS
   ============================================================ */
   function initRollingButtons() {
@@ -526,7 +667,7 @@
     $('.default-button, .hero-pill-button').each(function () {
       const $btn = $(this);
       if ($btn.find('.circle-fill').length) return;
-      
+
       const text = $btn.find('.text').text().trim() || $btn.text().trim();
       $btn.empty().append(`
         <span class="btn-text-roll">
@@ -542,28 +683,53 @@
   }
 
   /* ============================================================
+     8E. DYNAMIC COPYRIGHT YEAR
+  ============================================================ */
+  function initDynamicYear() {
+    const currentYear = new Date().getFullYear();
+    $('[data-current-year], .current-year').text(currentYear);
+    $('footer span').each(function () {
+      const html = $(this).html();
+      if (html && (html.indexOf('&copy;') !== -1 || html.indexOf('©') !== -1)) {
+        $(this).html(html.replace(/(?:&copy;|©)\s*(?:<span[^>]*>)?\s*\d{4}\s*(?:<\/span>)?/g, `&copy; <span data-current-year>${currentYear}</span>`));
+      }
+    });
+  }
+
+  /* ============================================================
      INITIALIZE
   ============================================================ */
   $(document).ready(function () {
+    initLenis();
     initCursor();
     initCoverMenu();
     initHeroParallax();
     initHeaderThemeObserver();
     initRollingButtons();
-    initWorksReveal();
+    initScrollObserver();
+    initColumnParallax();
     initStickyServiceStack();
     initCounters();
     initProjectModal();
     initConsultationForm();
+    initCopyEmail();
+    initFaqAccordion();
+    initDynamicYear();
 
-    // Smooth scroll for internal hashes
+    // Smooth scroll for internal hashes (Lenis-aware)
     $('a[href^="#"]').on('click', function (e) {
-      const target = $(this.getAttribute('href'));
+      const href = this.getAttribute('href');
+      if (href === '#' || href === '') return;
+      const target = $(href);
       if (target.length) {
         e.preventDefault();
-        $('html, body').stop().animate({
-          scrollTop: target.offset().top - 80
-        }, 800);
+        if (lenisInstance) {
+          lenisInstance.scrollTo(target[0], { offset: -80, duration: 1.2 });
+        } else {
+          $('html, body').stop().animate({
+            scrollTop: target.offset().top - 80
+          }, 800);
+        }
       }
     });
   });
