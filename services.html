@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services &amp; Capabilities — LLCG Team Studio</title>
+  <meta name="description" content="Digital product UX/UI, full-stack web engineering, 3D WebGL motion, and conversion rate optimization by LLCG Team.">
+  <link rel="icon" type="image/svg+xml" href="assets/svg/logo.svg">
+  <link rel="stylesheet" href="dist/output.css">
+</head>
+<body class="bg-white text-agency-black-2 selection:bg-agency-red selection:text-white">
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor" aria-hidden="true">
+    <div class="custom-cursor-dot"></div>
+    <div class="custom-cursor-ring"><span class="cursor-text">VIEW</span></div>
+  </div>
+
+  <!-- Header -->
+  <header id="mainHeader" class="header py-8 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-3 z-50 group" id="headerLogo" data-cursor="hover" aria-label="LLCG Team Home">
+      <div class="w-10 h-10 transition-transform duration-500 group-hover:scale-105">
+        <svg viewBox="0 0 44 44" fill="none" class="w-full h-full">
+          <rect width="44" height="44" rx="10" fill="#1f1e1d" stroke="#f84525" stroke-width="2"/>
+          <path d="M13 14v16h10" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M23 18v12h8" stroke="#f84525" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="31" cy="18" r="2.5" fill="#f84525"/>
+        </svg>
+      </div>
+      <div class="flex flex-col">
+        <span class="font-montserrat font-black text-xl tracking-wider leading-none text-current">LLCG<span class="text-agency-red">.</span></span>
+        <span class="text-[9px] tracking-[0.35em] font-semibold text-sub-gray-3 mt-1">TEAM STUDIO</span>
+      </div>
+    </a>
+
+    <div class="flex items-center gap-6 sm:gap-10 z-50">
+      <a href="lets-talk.html" id="headerCta" class="button-cta text-current hidden sm:inline-block" data-cursor="hover">
+        Let's Talk
+      </a>
+      <button id="hamburgerBtn" class="hamburger focus:outline-none" aria-label="Toggle Menu" data-cursor="hover">
+        <div class="bg-circle shadow-md"></div>
+        <div class="icon-lines"><span class="line"></span><span class="line"></span><span class="line"></span></div>
+      </button>
+    </div>
+  </header>
+
+  <!-- Cover Menu -->
+  <div id="coverMenu" class="cover-menu flex items-center justify-center">
+    <div class="w-full max-w-desktop px-6 md:px-12 py-16 flex flex-col md:flex-row justify-between items-start md:items-end gap-12 relative z-20">
+      <div class="flex flex-col">
+        <span class="text-xs font-bold tracking-[0.3em] uppercase text-sub-gray-3 mb-6 block">Navigation</span>
+        <ul class="flex flex-col space-y-4">
+          <li class="menu-nav-item"><a href="index.html" class="menu-nav-link" data-cursor="hover"><span class="numbering font-mono">01</span><span class="menu-word">HOME</span></a></li>
+          <li class="menu-nav-item"><a href="work.html" class="menu-nav-link" data-cursor="hover"><span class="numbering font-mono">02</span><span class="menu-word">WORK</span></a></li>
+          <li class="menu-nav-item"><a href="services.html" class="menu-nav-link" data-cursor="hover"><span class="numbering font-mono">03</span><span class="menu-word">SERVICES</span></a></li>
+          <li class="menu-nav-item"><a href="about.html" class="menu-nav-link" data-cursor="hover"><span class="numbering font-mono">04</span><span class="menu-word">ABOUT</span></a></li>
+          <li class="menu-nav-item"><a href="lets-talk.html" class="menu-nav-link" data-cursor="hover"><span class="numbering font-mono">05</span><span class="menu-word">CONTACT</span></a></li>
+        </ul>
+      </div>
+      <div class="flex flex-col text-white/80 space-y-6 max-w-sm">
+        <div>
+          <span class="text-xs font-bold tracking-[0.25em] uppercase text-agency-red block mb-2">Direct Contact</span>
+          <a href="mailto:hello@llcgteam.com" class="text-xl font-medium text-white hover:text-agency-red transition-colors" data-cursor="hover">hello@llcgteam.com</a>
+        </div>
+        <p class="text-sm text-sub-gray-4 leading-relaxed">
+          300 Santana Row, Suite 400<br>San Jose, CA 95128
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <main class="pt-40 pb-32 px-6 md:px-12 max-w-desktop mx-auto">
+    <!-- Services Hero -->
+    <div class="mb-24">
+      <span class="type-comp2 text-agency-red block mb-2">CAPABILITIES &amp; SPECIALTIES</span>
+      <h1 class="type-h2 text-agency-black-2 mb-6">Our Services</h1>
+      <p class="text-sub-gray-1 max-w-3xl text-xl leading-relaxed">
+        We bridge world-class visual aesthetics with high-performance frontend architecture, empowering ambitious brands to redefine their categories.
+      </p>
+    </div>
+
+    <!-- 3 Pillars Breakdown -->
+    <div class="space-y-24">
+      
+      <!-- Pillar 1: Website -->
+      <section class="p-8 sm:p-12 rounded-2xl bg-agency-gray border border-black/5">
+        <div class="flex items-center justify-between mb-8 pb-6 border-b border-black/10">
+          <span class="font-montserrat font-black text-4xl text-agency-red">01</span>
+          <span class="type-comp1 text-sub-gray-2">ENGINEERING &amp; DESIGN</span>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div class="lg:col-span-5">
+            <h2 class="font-montserrat font-bold text-3xl text-agency-black-2 mb-4">Web Design &amp; Development</h2>
+            <p class="text-sub-gray-2 leading-relaxed text-sm">
+              We design and code bespoke digital flagships that balance emotional resonance with flawless technical precision. Every website is built from the ground up for instantaneous responsiveness, SEO supremacy, and cross-device fluidity.
+            </p>
+          </div>
+          <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="p-4 rounded-lg bg-white border border-black/5">
+              <h3 class="font-bold text-sm text-agency-black-2 mb-2">UX/UI Architecture</h3>
+              <p class="text-xs text-sub-gray-3 leading-relaxed">User research, interactive wireframing, high-fidelity prototypes, and component design tokens.</p>
+            </div>
+            <div class="p-4 rounded-lg bg-white border border-black/5">
+              <h3 class="font-bold text-sm text-agency-black-2 mb-2">Full-Stack Engineering</h3>
+              <p class="text-xs text-sub-gray-3 leading-relaxed">Custom frontend builds, Jamstack, reactive APIs, WebSockets, and headless CMS integrations.</p>
+            </div>
+            <div class="p-4 rounded-lg bg-white border border-black/5">
+              <h3 class="font-bold text-sm text-agency-black-2 mb-2">Performance &amp; CWV</h3>
+              <p class="text-xs text-sub-gray-3 leading-relaxed">Sub-second LCP, zero layout shifts, asset minification, and global edge CDN caching.</p>
+            </div>
+            <div class="p-4 rounded-lg bg-white border border-black/5">
+              <h3 class="font-bold text-sm text-agency-black-2 mb-2">WebGL &amp; Micro-Interactions</h3>
+              <p class="text-xs text-sub-gray-3 leading-relaxed">Fluid GSAP animations, canvas shaders, interactive 3D geometry, and custom cursors.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pillar 2: Creative -->
+      <section class="p-8 sm:p-12 rounded-2xl bg-agency-gray border border-black/5">
+        <div class="flex items-center justify-between mb-8 pb-6 border-b border-black/10">
+          <span class="font-montserrat font-black text-4xl text-agency-red">02</span>
+          <span class="type-comp1 text-sub-gray-2">BRAND &amp; MOTION</span>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div class="lg:col-span-5">
+            <h2 class="font-montserrat font-bold text-3xl text-agency-black-2 mb-4">Brand Identity &amp; Art Direction</h2>
+            <p class="text-sub-gray-2 leading-relaxed text-sm">
+              A distinctive brand voice is the foundation of competitive differentiation. We formulate cohesive visual systems that evoke trust, curiosity, and lasting brand loyalty.
+            </p>
+          </div>
+          <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="p-4 rounded-lg bg-white border border-black/5">
+              <h3 class="font-bold text-sm text-agency-black-2 mb-2">Brand Positioning</h3>
+              <p class="text-xs text-sub-gray-3 leading-relaxed">Competitive landscape analysis, value proposition mapping, and strategic narrative pillars.</p>
+            </div>
+            <div class="p-4 rounded-lg bg-white border border-black/5">
+              <h3 class="font-bold text-sm text-agency-black-2 mb-2">Identity Systems</h3>
+              <p class="text-xs text-sub-gray-3 leading-relaxed">Vector logomarks, typography hierarchies, curated color spaces, and brand manuals.</p>
+            </div>
+            <div class="p-4 rounded-lg bg-white border border-black/5">
+              <h3 class="font-bold text-sm text-agency-black-2 mb-2">Kinetic Graphics &amp; 3D</h3>
+              <p class="text-xs text-sub-gray-3 leading-relaxed">3D product renders, kinetic typography reels, and interactive illustration suites.</p>
+            </div>
+            <div class="p-4 rounded-lg bg-white border border-black/5">
+              <h3 class="font-bold text-sm text-agency-black-2 mb-2">Design Systems</h3>
+              <p class="text-xs text-sub-gray-3 leading-relaxed">Figma token libraries, reusable UI component kits, and live developer documentation.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pillar 3: Strategy -->
+      <section class="p-8 sm:p-12 rounded-2xl bg-agency-gray border border-black/5">
+        <div class="flex items-center justify-between mb-8 pb-6 border-b border-black/10">
+          <span class="font-montserrat font-black text-4xl text-agency-red">03</span>
+          <span class="type-comp1 text-sub-gray-2">GROWTH &amp; OPTIMIZATION</span>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div class="lg:col-span-5">
+            <h2 class="font-montserrat font-bold text-3xl text-agency-black-2 mb-4">Digital Strategy &amp; CRO</h2>
+            <p class="text-sub-gray-2 leading-relaxed text-sm">
+              We leverage data-driven behavior analytics to eliminate onboarding friction, streamline conversion funnels, and boost customer lifetime value.
+            </p>
+          </div>
+          <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="p-4 rounded-lg bg-white border border-black/5">
+              <h3 class="font-bold text-sm text-agency-black-2 mb-2">Funnel &amp; CRO Audits</h3>
+              <p class="text-xs text-sub-gray-3 leading-relaxed">Heatmap analysis, drop-off diagnostics, multivariate A/B testing, and user interviews.</p>
+            </div>
+            <div class="p-4 rounded-lg bg-white border border-black/5">
+              <h3 class="font-bold text-sm text-agency-black-2 mb-2">Technical SEO Architecture</h3>
+              <p class="text-xs text-sub-gray-3 leading-relaxed">Semantic HTML5 hierarchy, JSON-LD structured schema, and crawl-budget optimization.</p>
+            </div>
+            <div class="p-4 rounded-lg bg-white border border-black/5">
+              <h3 class="font-bold text-sm text-agency-black-2 mb-2">Telemetry &amp; Analytics</h3>
+              <p class="text-xs text-sub-gray-3 leading-relaxed">Cookieless privacy analytics, custom event instrumentation, and executive BI dashboards.</p>
+            </div>
+            <div class="p-4 rounded-lg bg-white border border-black/5">
+              <h3 class="font-bold text-sm text-agency-black-2 mb-2">Scalability Roadmapping</h3>
+              <p class="text-xs text-sub-gray-3 leading-relaxed">Technology migration blueprints, cloud infrastructure optimization, and security audits.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Agency Process -->
+    <div class="mt-32 pt-16 border-t border-black/10">
+      <span class="type-comp2 text-agency-red block mb-4">OUR METHODOLOGY</span>
+      <h2 class="type-h3 text-agency-black-2 mb-12">How We Work</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="p-6 rounded-xl border border-black/5 bg-agency-gray">
+          <span class="font-montserrat font-bold text-sm text-agency-red block mb-2">PHASE 01</span>
+          <h3 class="font-montserrat font-bold text-xl text-agency-black-2 mb-3">Discovery &amp; Align</h3>
+          <p class="text-xs text-sub-gray-2 leading-relaxed">Deep-dive workshops to uncover brand positioning, technical requisites, and target metrics.</p>
+        </div>
+        <div class="p-6 rounded-xl border border-black/5 bg-agency-gray">
+          <span class="font-montserrat font-bold text-sm text-agency-red block mb-2">PHASE 02</span>
+          <h3 class="font-montserrat font-bold text-xl text-agency-black-2 mb-3">Concept &amp; UX</h3>
+          <p class="text-xs text-sub-gray-2 leading-relaxed">Information architecture, responsive layouts, interactive wireframes, and design prototypes.</p>
+        </div>
+        <div class="p-6 rounded-xl border border-black/5 bg-agency-gray">
+          <span class="font-montserrat font-bold text-sm text-agency-red block mb-2">PHASE 03</span>
+          <h3 class="font-montserrat font-bold text-xl text-agency-black-2 mb-3">Engineering</h3>
+          <p class="text-xs text-sub-gray-2 leading-relaxed">Pixel-perfect development with Tailwind CLI, vanilla CSS variables, interactive scripts, and 60fps motion.</p>
+        </div>
+        <div class="p-6 rounded-xl border border-black/5 bg-agency-gray">
+          <span class="font-montserrat font-bold text-sm text-agency-red block mb-2">PHASE 04</span>
+          <h3 class="font-montserrat font-bold text-xl text-agency-black-2 mb-3">Launch &amp; Scale</h3>
+          <p class="text-xs text-sub-gray-2 leading-relaxed">Rigorous cross-browser QA, Core Web Vitals benchmarking, SEO validation, and production deployment.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-28 p-12 rounded-2xl bg-agency-black-1 text-white flex flex-col md:flex-row items-center justify-between gap-8">
+      <div>
+        <span class="type-comp2 text-agency-red block mb-2">START A PROJECT</span>
+        <h3 class="font-montserrat font-bold text-2xl sm:text-3xl">Ready to elevate your digital experience?</h3>
+      </div>
+      <a href="lets-talk.html" class="px-8 py-4 rounded-lg bg-agency-red text-white font-montserrat font-bold text-xs tracking-widest uppercase hover:bg-orange-600 transition-colors shadow-lg" data-cursor="hover">
+        Schedule Scoping Call &rarr;
+      </a>
+    </div>
+  </main>
+
+  <footer class="py-12 px-6 md:px-12 bg-agency-black-2 text-white border-t border-white/10 text-xs text-sub-gray-3 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center gap-4">
+    <span>&copy; 2026 LLCG Team Studio. All Rights Reserved.</span>
+    <div class="flex gap-6 uppercase font-semibold">
+      <a href="index.html" class="hover:text-agency-red">Home</a>
+      <a href="work.html" class="hover:text-agency-red">Work</a>
+      <a href="about.html" class="hover:text-agency-red">About</a>
+      <a href="lets-talk.html" class="hover:text-agency-red">Contact</a>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

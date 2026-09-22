@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%" height="100%">
+  <defs>
+    <linearGradient id="novabg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16" />
+      <stop offset="50%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#1e1b4b" />
+    </linearGradient>
+    <linearGradient id="indigoGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#a855f7" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="25" stdDeviation="35" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#novabg)"/>
+  <circle cx="1000" cy="150" r="300" fill="#4f46e5" opacity="0.15" filter="blur(80px)"/>
+  <circle cx="200" cy="700" r="250" fill="#f84525" opacity="0.08" filter="blur(90px)"/>
+
+  <!-- Grid overlay -->
+  <g stroke="rgba(255,255,255,0.04)" stroke-width="1">
+    <line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="0" y1="600" x2="1200" y2="600"/>
+    <line x1="300" y1="0" x2="300" y2="800"/>
+    <line x1="600" y1="0" x2="600" y2="800"/>
+    <line x1="900" y1="0" x2="900" y2="800"/>
+  </g>
+
+  <!-- Laptop / Dashboard Main Frame -->
+  <g filter="url(#shadow)">
+    <!-- Browser Window Container -->
+    <rect x="140" y="90" width="920" height="620" rx="16" fill="#131722" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+    
+    <!-- Window Bar -->
+    <rect x="140" y="90" width="920" height="50" rx="16" fill="#181e2e"/>
+    <circle cx="175" cy="115" r="6" fill="#ef4444"/>
+    <circle cx="195" cy="115" r="6" fill="#f59e0b"/>
+    <circle cx="215" cy="115" r="6" fill="#10b981"/>
+    <rect x="250" y="102" width="300" height="26" rx="6" fill="#0d111d"/>
+    <text x="270" y="119" font-family="'Inter', sans-serif" font-size="11" fill="#64748b">https://novapay.global/treasury</text>
+    
+    <!-- Sidebar -->
+    <rect x="140" y="140" width="200" height="570" fill="#0e131f"/>
+    <rect x="165" y="170" width="150" height="32" rx="6" fill="rgba(99,102,241,0.15)"/>
+    <text x="180" y="191" font-family="'Inter', sans-serif" font-weight="600" font-size="13" fill="#818cf8">✦ Global Liquidity</text>
+    <text x="180" y="235" font-family="'Inter', sans-serif" font-size="13" fill="#94a3b8">Multi-Currency</text>
+    <text x="180" y="275" font-family="'Inter', sans-serif" font-size="13" fill="#94a3b8">Settlements</text>
+    <text x="180" y="315" font-family="'Inter', sans-serif" font-size="13" fill="#94a3b8">API Gateways</text>
+    <text x="180" y="355" font-family="'Inter', sans-serif" font-size="13" fill="#94a3b8">Compliance</text>
+
+    <!-- Main Content Area -->
+    <!-- Metric Cards -->
+    <g transform="translate(370, 165)">
+      <rect x="0" y="0" width="200" height="100" rx="12" fill="#1a2035" stroke="rgba(255,255,255,0.06)"/>
+      <text x="20" y="30" font-family="'Inter', sans-serif" font-size="12" fill="#94a3b8">Total Volume (24h)</text>
+      <text x="20" y="65" font-family="'Montserrat', sans-serif" font-weight="700" font-size="24" fill="#ffffff">$48,290,410</text>
+      <text x="20" y="85" font-family="'Inter', sans-serif" font-size="11" fill="#10b981">↑ +14.8% vs last week</text>
+
+      <rect x="220" y="0" width="200" height="100" rx="12" fill="#1a2035" stroke="rgba(255,255,255,0.06)"/>
+      <text x="240" y="30" font-family="'Inter', sans-serif" font-size="12" fill="#94a3b8">Avg Latency</text>
+      <text x="240" y="65" font-family="'Montserrat', sans-serif" font-weight="700" font-size="24" fill="#ffffff">42 ms</text>
+      <text x="240" y="85" font-family="'Inter', sans-serif" font-size="11" fill="#818cf8">Global p99 SLA</text>
+
+      <rect x="440" y="0" width="210" height="100" rx="12" fill="#1a2035" stroke="rgba(255,255,255,0.06)"/>
+      <text x="460" y="30" font-family="'Inter', sans-serif" font-size="12" fill="#94a3b8">Success Rate</text>
+      <text x="460" y="65" font-family="'Montserrat', sans-serif" font-weight="700" font-size="24" fill="#ffffff">99.98%</text>
+      <text x="460" y="85" font-family="'Inter', sans-serif" font-size="11" fill="#10b981">Tier-1 Network OK</text>
+    </g>
+
+    <!-- Large Chart Area -->
+    <g transform="translate(370, 290)">
+      <rect x="0" y="0" width="650" height="380" rx="14" fill="#181f34" stroke="rgba(255,255,255,0.06)"/>
+      <text x="24" y="35" font-family="'Montserrat', sans-serif" font-weight="700" font-size="16" fill="#ffffff">Real-Time Global Settlement Velocity</text>
+      <text x="24" y="55" font-family="'Inter', sans-serif" font-size="12" fill="#64748b">Live streaming telemetry across 48 banking partners</text>
+
+      <!-- Wave Curve -->
+      <path d="M 30 290 Q 120 180 200 240 T 380 140 T 520 200 T 620 90 L 620 340 L 30 340 Z" fill="url(#indigoGlow)" opacity="0.15"/>
+      <path d="M 30 290 Q 120 180 200 240 T 380 140 T 520 200 T 620 90" fill="none" stroke="url(#indigoGlow)" stroke-width="3.5"/>
+      
+      <!-- Glowing Points -->
+      <circle cx="380" cy="140" r="6" fill="#a855f7" stroke="#ffffff" stroke-width="2"/>
+      <circle cx="620" cy="90" r="6" fill="#6366f1" stroke="#ffffff" stroke-width="2"/>
+      
+      <rect x="340" y="70" width="140" height="50" rx="8" fill="#0d111d" stroke="rgba(255,255,255,0.15)"/>
+      <text x="355" y="92" font-family="'Inter', sans-serif" font-weight="600" font-size="12" fill="#ffffff">$12.4M Peak</text>
+      <text x="355" y="108" font-family="'Inter', sans-serif" font-size="10" fill="#94a3b8">Tokyo - London Line</text>
+    </g>
+  </g>
+
+  <!-- Floating Glass Card -->
+  <g transform="translate(100, 520)" filter="url(#shadow)">
+    <rect width="260" height="150" rx="14" fill="rgba(30, 27, 75, 0.85)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+    <text x="24" y="36" font-family="'Montserrat', sans-serif" font-weight="700" font-size="14" fill="#ffffff">NovaPay Engine</text>
+    <text x="24" y="58" font-family="'Inter', sans-serif" font-size="11" fill="#c7d2fe">Built by LLCG Team</text>
+    <rect x="24" y="75" width="210" height="2" fill="rgba(255,255,255,0.1)"/>
+    <text x="24" y="105" font-family="'Montserrat', sans-serif" font-weight="800" font-size="22" fill="#f84525">+240%</text>
+    <text x="24" y="125" font-family="'Inter', sans-serif" font-size="11" fill="#e2e8f0">Checkout Conversion Lift</text>
+  </g>
+</svg>

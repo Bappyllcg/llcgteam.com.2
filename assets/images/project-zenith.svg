@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%" height="100%">
+  <defs>
+    <linearGradient id="zenithbg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1329" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#0369a1" />
+    </linearGradient>
+    <linearGradient id="cyanBlue" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#60a5fa" />
+    </linearGradient>
+    <filter id="zenithShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="25" stdDeviation="30" flood-color="#000000" flood-opacity="0.75"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#zenithbg)"/>
+  <circle cx="950" cy="180" r="300" fill="#0284c7" opacity="0.15" filter="blur(95px)"/>
+
+  <!-- Clinical HealthTech Dashboard Frame -->
+  <g filter="url(#zenithShadow)">
+    <rect x="180" y="100" width="840" height="600" rx="16" fill="#0f172a" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+    
+    <!-- Window Bar -->
+    <rect x="180" y="100" width="840" height="50" rx="16" fill="#1e293b"/>
+    <circle cx="215" cy="125" r="5" fill="#38bdf8"/>
+    <text x="235" y="130" font-family="'Montserrat', sans-serif" font-weight="700" font-size="12" letter-spacing="0.15em" fill="#ffffff">ZENITH HEALTH // ONCOLOGY GENOME SEQUENCE OS</text>
+
+    <!-- DNA Helix / Particle Visualization -->
+    <g transform="translate(220, 180)">
+      <rect x="0" y="0" width="480" height="280" rx="12" fill="#141e33" stroke="rgba(255,255,255,0.06)"/>
+      <text x="24" y="36" font-family="'Montserrat', sans-serif" font-weight="700" font-size="15" fill="#ffffff">Variant Allele Frequency (VAF)</text>
+      <text x="24" y="58" font-family="'Inter', sans-serif" font-size="11" fill="#64748b">Patient Cohort: NGS-48092 • Stage IV Clinical Trial</text>
+
+      <!-- Sine / Helix waves representing DNA -->
+      <path d="M 30 180 Q 90 90 150 180 T 270 180 T 390 180 T 450 180" fill="none" stroke="#38bdf8" stroke-width="3"/>
+      <path d="M 30 180 Q 90 270 150 180 T 270 180 T 390 180 T 450 180" fill="none" stroke="#60a5fa" stroke-width="3"/>
+      
+      <!-- Crossbars -->
+      <line x1="90" y1="90" x2="90" y2="270" stroke="rgba(56,189,248,0.4)" stroke-width="1.5" stroke-dasharray="3 3"/>
+      <line x1="210" y1="90" x2="210" y2="270" stroke="rgba(56,189,248,0.4)" stroke-width="1.5" stroke-dasharray="3 3"/>
+      <line x1="330" y1="90" x2="330" y2="270" stroke="rgba(56,189,248,0.4)" stroke-width="1.5" stroke-dasharray="3 3"/>
+
+      <circle cx="90" cy="90" r="6" fill="#38bdf8"/>
+      <circle cx="210" cy="270" r="6" fill="#60a5fa"/>
+      <circle cx="330" cy="90" r="6" fill="#38bdf8"/>
+    </g>
+
+    <!-- Side Intelligence Panel -->
+    <g transform="translate(730, 180)">
+      <rect x="0" y="0" width="250" height="280" rx="12" fill="#141e33" stroke="rgba(255,255,255,0.06)"/>
+      <text x="20" y="36" font-family="'Montserrat', sans-serif" font-weight="700" font-size="13" fill="#38bdf8">Target Biomarkers</text>
+      
+      <rect x="20" y="60" width="210" height="48" rx="8" fill="#1e293b"/>
+      <text x="32" y="82" font-family="'Inter', sans-serif" font-weight="600" font-size="12" fill="#ffffff">EGFR Mutation (L858R)</text>
+      <text x="32" y="98" font-family="'Inter', sans-serif" font-size="10" fill="#38bdf8">Targeted Response: 92.4%</text>
+
+      <rect x="20" y="120" width="210" height="48" rx="8" fill="#1e293b"/>
+      <text x="32" y="142" font-family="'Inter', sans-serif" font-weight="600" font-size="12" fill="#ffffff">KRAS (G12C Inhibitor)</text>
+      <text x="32" y="158" font-family="'Inter', sans-serif" font-size="10" fill="#10b981">Optimal Efficacy Verified</text>
+
+      <rect x="20" y="180" width="210" height="48" rx="8" fill="#1e293b"/>
+      <text x="32" y="202" font-family="'Inter', sans-serif" font-weight="600" font-size="12" fill="#ffffff">BRAF V600E Telemetry</text>
+      <text x="32" y="218" font-family="'Inter', sans-serif" font-size="10" fill="#94a3b8">Continuous Clinical Monitored</text>
+    </g>
+
+    <!-- Bottom Metrics -->
+    <g transform="translate(220, 490)">
+      <rect x="0" y="0" width="760" height="170" rx="12" fill="#141e33" stroke="rgba(255,255,255,0.06)"/>
+      <text x="30" y="40" font-family="'Montserrat', sans-serif" font-weight="700" font-size="15" fill="#ffffff">Ecosystem Outcomes</text>
+      
+      <text x="30" y="85" font-family="'Montserrat', sans-serif" font-weight="800" font-size="32" fill="#38bdf8">94%</text>
+      <text x="30" y="110" font-family="'Inter', sans-serif" font-size="12" fill="#94a3b8">Clinical Usability Score</text>
+
+      <text x="280" y="85" font-family="'Montserrat', sans-serif" font-weight="800" font-size="32" fill="#ffffff">45+</text>
+      <text x="280" y="110" font-family="'Inter', sans-serif" font-size="12" fill="#94a3b8">Global Research Labs Connected</text>
+
+      <text x="540" y="85" font-family="'Montserrat', sans-serif" font-weight="800" font-size="32" fill="#10b981">100%</text>
+      <text x="540" y="110" font-family="'Inter', sans-serif" font-size="12" fill="#94a3b8">HIPAA & GDPR Certified Platform</text>
+    </g>
+  </g>
+</svg>

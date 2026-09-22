@@ -1,0 +1,22 @@
+{
+  "name": "llcgteam-website",
+  "version": "1.0.0",
+  "description": "LLCG Team Official Website - Digital Design & Engineering Agency",
+  "main": "index.html",
+  "scripts": {
+    "build:css": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
+    "watch:css": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "dev": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
+  },
+  "keywords": [
+    "digital-agency",
+    "web-design",
+    "engineering",
+    "llcg-team"
+  ],
+  "author": "LLCG Team",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
+  }
+}

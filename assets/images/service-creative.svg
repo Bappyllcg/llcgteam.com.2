@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 625 815" width="100%" height="100%">
+  <defs>
+    <linearGradient id="creativeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1c1615"/>
+      <stop offset="50%" stop-color="#2a1d1b"/>
+      <stop offset="100%" stop-color="#141010"/>
+    </linearGradient>
+    <linearGradient id="redFlame" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f84525"/>
+      <stop offset="100%" stop-color="#ff7b54"/>
+    </linearGradient>
+  </defs>
+  <rect width="625" height="815" fill="url(#creativeGrad)"/>
+  
+  <g transform="translate(312, 407)">
+    <!-- Abstract 3D Geometric Sculpture -->
+    <polygon points="0,-220 180,-90 180,160 0,280 -180,160 -180,-90" fill="#241a18" stroke="#f84525" stroke-width="2"/>
+    <polygon points="0,-220 180,-90 0,40 -180,-90" fill="url(#redFlame)" opacity="0.9"/>
+    <polygon points="0,40 180,-90 180,160 0,280" fill="#1c1412" stroke="#f84525" stroke-width="1.5"/>
+    <polygon points="-180,-90 0,40 0,280 -180,160" fill="#150f0e" stroke="#f84525" stroke-width="1.5"/>
+    
+    <!-- Concentric Orbit Rings -->
+    <circle cx="0" cy="40" r="260" fill="none" stroke="rgba(248,69,37,0.25)" stroke-width="1.5" stroke-dasharray="12 8"/>
+    <circle cx="0" cy="40" r="180" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+  </g>
+
+  <text x="60" y="100" font-family="'Montserrat', sans-serif" font-weight="900" font-size="28" fill="#ffffff">IDENTITY &amp; ART DIRECTION</text>
+  <text x="60" y="130" font-family="'Inter', sans-serif" font-size="13" fill="#9c9c9c">Visual systems that define industry categories</text>
+</svg>

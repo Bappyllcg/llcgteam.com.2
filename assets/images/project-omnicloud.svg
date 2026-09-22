@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%" height="100%">
+  <defs>
+    <linearGradient id="omnicloudbg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#022c22" />
+      <stop offset="50%" stop-color="#064e3b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="emeraldGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#34d399" />
+    </linearGradient>
+    <filter id="cloudShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="25" stdDeviation="30" flood-color="#000000" flood-opacity="0.7"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#omnicloudbg)"/>
+  <circle cx="250" cy="200" r="300" fill="#10b981" opacity="0.1" filter="blur(90px)"/>
+
+  <!-- Enterprise Architecture Diagram & Dashboard -->
+  <g filter="url(#cloudShadow)">
+    <rect x="160" y="100" width="880" height="600" rx="16" fill="#0b1319" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+    
+    <rect x="160" y="100" width="880" height="52" rx="16" fill="#101c24"/>
+    <circle cx="195" cy="126" r="6" fill="#10b981"/>
+    <text x="220" y="132" font-family="'Montserrat', sans-serif" font-weight="700" font-size="13" letter-spacing="0.12em" fill="#ffffff">OMNICLOUD // GLOBAL MESH ORCHESTRATION</text>
+
+    <!-- Mesh Nodes -->
+    <g transform="translate(200, 200)">
+      <!-- Central Cluster -->
+      <rect x="250" y="40" width="220" height="120" rx="12" fill="#13232c" stroke="#10b981" stroke-width="2"/>
+      <text x="270" y="75" font-family="'Montserrat', sans-serif" font-weight="700" font-size="15" fill="#34d399">Cluster: US-East-1</text>
+      <text x="270" y="100" font-family="'Inter', sans-serif" font-size="12" fill="#94a3b8">Pods: 1,480 Active</text>
+      <text x="270" y="125" font-family="'Inter', sans-serif" font-size="12" fill="#10b981">Latency: 4.1ms</text>
+
+      <!-- Connection Lines -->
+      <line x1="140" y1="180" x2="250" y2="100" stroke="#34d399" stroke-width="2" stroke-dasharray="6 4"/>
+      <line x1="470" y1="100" x2="580" y2="180" stroke="#34d399" stroke-width="2" stroke-dasharray="6 4"/>
+      <line x1="360" y1="160" x2="360" y2="240" stroke="#34d399" stroke-width="2"/>
+
+      <!-- Regional Nodes -->
+      <rect x="40" y="180" width="180" height="100" rx="10" fill="#0f1c24" stroke="rgba(255,255,255,0.1)"/>
+      <text x="60" y="215" font-family="'Montserrat', sans-serif" font-weight="600" font-size="13" fill="#ffffff">EU-Central (Frankfurt)</text>
+      <text x="60" y="240" font-family="'Inter', sans-serif" font-size="11" fill="#94a3b8">Nodes: 840</text>
+
+      <rect x="520" y="180" width="180" height="100" rx="10" fill="#0f1c24" stroke="rgba(255,255,255,0.1)"/>
+      <text x="540" y="215" font-family="'Montserrat', sans-serif" font-weight="600" font-size="13" fill="#ffffff">AP-East (Tokyo)</text>
+      <text x="540" y="240" font-family="'Inter', sans-serif" font-size="11" fill="#94a3b8">Nodes: 620</text>
+
+      <rect x="250" y="240" width="220" height="90" rx="10" fill="#0f1c24" stroke="rgba(255,255,255,0.1)"/>
+      <text x="270" y="275" font-family="'Montserrat', sans-serif" font-weight="600" font-size="13" fill="#ffffff">Edge CDN: 280 PoPs</text>
+      <text x="270" y="300" font-family="'Inter', sans-serif" font-size="11" fill="#34d399">99.999% Availability</text>
+    </g>
+
+    <!-- Lower Terminal Block -->
+    <g transform="translate(200, 560)">
+      <rect x="0" y="0" width="800" height="100" rx="10" fill="#070c10" stroke="rgba(255,255,255,0.08)"/>
+      <text x="24" y="32" font-family="'Courier New', monospace" font-size="13" fill="#34d399">$ omni-mesh deploy --production --canary=10%</text>
+      <text x="24" y="58" font-family="'Courier New', monospace" font-size="13" fill="#94a3b8">✔ Zero-downtime rolling deployment confirmed [140K+ developers]</text>
+      <text x="24" y="82" font-family="'Courier New', monospace" font-size="13" fill="#64748b">✔ Target: 100% cloud mesh sync completed in 0.42s</text>
+    </g>
+  </g>
+</svg>

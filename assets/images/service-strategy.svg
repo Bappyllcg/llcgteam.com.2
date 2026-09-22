@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 625 815" width="100%" height="100%">
+  <defs>
+    <linearGradient id="stratGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14171d"/>
+      <stop offset="50%" stop-color="#1b2029"/>
+      <stop offset="100%" stop-color="#0f1115"/>
+    </linearGradient>
+  </defs>
+  <rect width="625" height="815" fill="url(#stratGrad)"/>
+  
+  <g transform="translate(60, 160)">
+    <rect width="505" height="540" rx="16" fill="#181e28" stroke="rgba(255,255,255,0.1)"/>
+    <text x="40" y="55" font-family="'Montserrat', sans-serif" font-weight="800" font-size="20" fill="#ffffff">CONVERSION TOPOLOGY AUDIT</text>
+    <text x="40" y="80" font-family="'Inter', sans-serif" font-size="12" fill="#94a3b8">Empirical user journey modeling and funnel optimization</text>
+    
+    <!-- Vector Trend Wave -->
+    <path d="M 40 400 Q 140 320 220 370 T 360 220 T 465 150" fill="none" stroke="#f84525" stroke-width="4"/>
+    <circle cx="220" cy="370" r="6" fill="#f84525"/>
+    <circle cx="360" cy="220" r="6" fill="#ffffff"/>
+    <circle cx="465" cy="150" r="8" fill="#f84525" stroke="#ffffff" stroke-width="2"/>
+
+    <rect x="40" y="440" width="200" height="60" rx="8" fill="#10141d"/>
+    <text x="55" y="465" font-family="'Inter', sans-serif" font-size="11" fill="#94a3b8">Average Lift</text>
+    <text x="55" y="488" font-family="'Montserrat', sans-serif" font-weight="800" font-size="18" fill="#f84525">+185% CRO</text>
+
+    <rect x="265" y="440" width="200" height="60" rx="8" fill="#10141d"/>
+    <text x="280" y="465" font-family="'Inter', sans-serif" font-size="11" fill="#94a3b8">Time-to-Value</text>
+    <text x="280" y="488" font-family="'Montserrat', sans-serif" font-weight="800" font-size="18" fill="#ffffff">&lt; 90 Days</text>
+  </g>
+</svg>

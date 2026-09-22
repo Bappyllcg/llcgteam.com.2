@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%" height="100%">
+  <defs>
+    <linearGradient id="aetherbg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#121214" />
+      <stop offset="50%" stop-color="#18181b" />
+      <stop offset="100%" stop-color="#27272a" />
+    </linearGradient>
+    <linearGradient id="redOrangeGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f84525" />
+      <stop offset="100%" stop-color="#fb923c" />
+    </linearGradient>
+    <filter id="darkShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="25" stdDeviation="30" flood-color="#000000" flood-opacity="0.8"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#aetherbg)"/>
+  <circle cx="950" cy="250" r="280" fill="#f84525" opacity="0.12" filter="blur(100px)"/>
+
+  <!-- Futuristic HUD / Spatial Grid -->
+  <g stroke="rgba(248,69,37,0.15)" stroke-width="1" fill="none">
+    <circle cx="600" cy="400" r="320"/>
+    <circle cx="600" cy="400" r="220" stroke-dasharray="8 6"/>
+    <circle cx="600" cy="400" r="140"/>
+    <line x1="100" y1="400" x2="1100" y2="400" stroke-dasharray="4 4"/>
+    <line x1="600" y1="50" x2="600" y2="750" stroke-dasharray="4 4"/>
+  </g>
+
+  <!-- Central 3D Robotics Model Representation -->
+  <g filter="url(#darkShadow)">
+    <rect x="220" y="110" width="760" height="580" rx="16" fill="#18181b" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+    
+    <!-- Top Bar -->
+    <rect x="220" y="110" width="760" height="48" rx="16" fill="#202024"/>
+    <circle cx="250" cy="134" r="5" fill="#f84525"/>
+    <text x="270" y="138" font-family="'Montserrat', sans-serif" font-weight="700" font-size="12" letter-spacing="0.15em" fill="#ffffff">AETHER SYSTEMS // SPATIAL OS v4.2</text>
+    <rect x="850" y="122" width="105" height="24" rx="12" fill="rgba(248,69,37,0.15)"/>
+    <text x="865" y="138" font-family="'Inter', sans-serif" font-weight="600" font-size="11" fill="#f84525">● 60 FPS LIVE</text>
+
+    <!-- Robot Telemetry Wireframe / Isometric Cube -->
+    <g transform="translate(600, 360)">
+      <!-- Isometric Core -->
+      <polygon points="0,-120 120,-50 120,90 0,160 -120,90 -120,-50" fill="#222226" stroke="#f84525" stroke-width="2"/>
+      <polygon points="0,-120 120,-50 0,20 -120,-50" fill="#2a2a30" stroke="#f84525" stroke-width="1.5"/>
+      <polygon points="0,20 120,-50 120,90 0,160" fill="#1d1d21" stroke="#f84525" stroke-width="1.5"/>
+      <polygon points="-120,-50 0,20 0,160 -120,90" fill="#161619" stroke="#f84525" stroke-width="1.5"/>
+      
+      <!-- Spatial Ring Nodes -->
+      <circle cx="0" cy="20" r="14" fill="#f84525"/>
+      <line x1="0" y1="20" x2="160" y2="-40" stroke="#f84525" stroke-width="1.5" stroke-dasharray="4 4"/>
+      <rect x="160" y="-60" width="130" height="40" rx="6" fill="#131316" stroke="rgba(255,255,255,0.2)"/>
+      <text x="175" y="-35" font-family="'Inter', sans-serif" font-size="11" fill="#e4e4e7">LiDAR Point: 98.6%</text>
+
+      <line x1="0" y1="20" x2="-180" y2="60" stroke="#f84525" stroke-width="1.5" stroke-dasharray="4 4"/>
+      <rect x="-310" y="40" width="130" height="40" rx="6" fill="#131316" stroke="rgba(255,255,255,0.2)"/>
+      <text x="-295" y="65" font-family="'Inter', sans-serif" font-size="11" fill="#e4e4e7">Actuator: 4.8 Nm</text>
+    </g>
+
+    <!-- Bottom HUD Stats -->
+    <g transform="translate(260, 580)">
+      <rect x="0" y="0" width="200" height="80" rx="8" fill="#131316" stroke="rgba(255,255,255,0.06)"/>
+      <text x="20" y="30" font-family="'Inter', sans-serif" font-size="11" fill="#a1a1aa">Perception Latency</text>
+      <text x="20" y="60" font-family="'Montserrat', sans-serif" font-weight="700" font-size="22" fill="#ffffff">1.2 ms</text>
+
+      <rect x="230" y="0" width="200" height="80" rx="8" fill="#131316" stroke="rgba(255,255,255,0.06)"/>
+      <text x="250" y="30" font-family="'Inter', sans-serif" font-size="11" fill="#a1a1aa">Series B Capital</text>
+      <text x="250" y="60" font-family="'Montserrat', sans-serif" font-weight="700" font-size="22" fill="#f84525">$85M ARR</text>
+
+      <rect x="460" y="0" width="220" height="80" rx="8" fill="#131316" stroke="rgba(255,255,255,0.06)"/>
+      <text x="480" y="30" font-family="'Inter', sans-serif" font-size="11" fill="#a1a1aa">Autonomous Uptime</text>
+      <text x="480" y="60" font-family="'Montserrat', sans-serif" font-weight="700" font-size="22" fill="#ffffff">99.994%</text>
+    </g>
+  </g>
+</svg>
