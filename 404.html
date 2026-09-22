@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found — LLCG Team Studio</title>
+  <link rel="icon" type="image/svg+xml" href="assets/svg/logo.svg">
+  <link rel="stylesheet" href="dist/output.css">
+  <script>
+    // GitHub Pages SPA Redirect Handler (Supports both default github.io and custom domains)
+    (function () {
+      var hostname = window.location.hostname;
+      var pathname = window.location.pathname;
+      var isGitHubPages = hostname.indexOf('github.io') !== -1;
+      
+      // Determine repository path prefix for github.io/repo-name
+      var pathSegments = pathname.split('/').filter(Boolean);
+      var repoPrefix = (isGitHubPages && pathSegments.length > 0) ? '/' + pathSegments[0] : '';
+      var route = pathname.slice(repoPrefix.length).replace(/^\/+/, '');
+
+      // Known extensionless routes
+      var knownRoutes = ['about', 'work', 'services', 'lets-talk', 'contact', 'home'];
+      var cleanRoute = route.replace(/\.html$/, '');
+
+      if (knownRoutes.indexOf(cleanRoute) !== -1 || route.indexOf('/') !== -1) {
+        var query = window.location.search ? '&' + window.location.search.slice(1).replace(/&/g, '~and~') : '';
+        var hash = window.location.hash || '';
+        var redirectUrl = (repoPrefix || '') + '/?/' + cleanRoute + query + hash;
+        window.location.replace(redirectUrl);
+        return;
+      }
+    })();
+  </script>
+</head>
+<body class="bg-agency-black-1 text-white min-h-screen flex flex-col justify-between p-8 selection:bg-agency-red selection:text-white">
+  <header class="flex justify-between items-center py-4">
+    <a href="./" class="text-xl font-bold tracking-widest uppercase">LLCG<span class="text-agency-red">.</span></a>
+    <a href="./" class="text-xs uppercase tracking-widest text-sub-gray-3 hover:text-white transition-colors">Home &rarr;</a>
+  </header>
+
+  <main class="max-w-xl mx-auto text-center py-20">
+    <span class="text-agency-red font-mono text-sm tracking-widest uppercase block mb-4">404 — ROUTE NOT FOUND</span>
+    <h1 class="text-4xl sm:text-6xl font-black mb-6 font-montserrat tracking-tight">Lost in the digital ether.</h1>
+    <p class="text-sub-gray-3 text-sm sm:text-base mb-10 leading-relaxed">
+      The requested page does not exist or has been relocated to a cleaner URL.
+    </p>
+    <div class="flex flex-wrap gap-4 justify-center">
+      <a href="./" class="px-8 py-4 bg-agency-red text-white text-xs font-bold uppercase tracking-widest rounded-full hover:bg-white hover:text-agency-black-1 transition-all duration-300">
+        Return Home
+      </a>
+      <a href="lets-talk" class="px-8 py-4 border border-white/20 text-white text-xs font-bold uppercase tracking-widest rounded-full hover:bg-white/10 transition-all duration-300">
+        Contact Studio
+      </a>
+    </div>
+  </main>
+
+  <footer class="text-center text-xs text-sub-gray-3 py-4 border-t border-white/10">
+    &copy; 2026 LLCG Team Studio. All Rights Reserved.
+  </footer>
+</body>
+</html>

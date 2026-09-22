@@ -36,6 +36,12 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+}
+
 body {
   font-family: 'Inter', -apple-system, sans-serif;
   color: var(--color-primary-black-2);

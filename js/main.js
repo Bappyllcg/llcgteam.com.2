@@ -42,6 +42,7 @@
       lenisInstance.on('scroll', () => {
         $(window).trigger('scroll');
       });
+      window.lenisInstance = lenisInstance;
     }
   }
 
@@ -139,6 +140,10 @@
         if (state.activeModal) closeModal();
       }
     });
+
+    window.closeCoverMenu = function () {
+      if (state.isMenuOpen) toggleMenu(false);
+    };
   }
 
   /* ============================================================
@@ -697,32 +702,62 @@
   }
 
   /* ============================================================
+     8F. WORK CATEGORY FILTER
+  ============================================================ */
+  function initWorkFilter() {
+    $('.filter-btn').off('click').on('click', function() {
+      const filter = $(this).attr('data-filter');
+      $('.filter-btn').removeClass('bg-agency-black-1 text-white').addClass('bg-black/5 text-sub-gray-2');
+      $(this).removeClass('bg-black/5 text-sub-gray-2').addClass('bg-agency-black-1 text-white');
+
+      if (filter === 'all') {
+        $('#workGrid article').fadeIn(300);
+      } else {
+        $('#workGrid article').hide();
+        $(`#workGrid article[data-category="${filter}"]`).fadeIn(300);
+      }
+    });
+  }
+
+  /* ============================================================
+     PAGE LIFECYCLE RE-INITIALIZATION (FOR SPA ROUTING)
+  ============================================================ */
+  function initPageFeatures() {
+    initHeroParallax();
+    initRollingButtons();
+    initScrollObserver();
+    initColumnParallax();
+    initStickyServiceStack();
+    initCounters();
+    initConsultationForm();
+    initFaqAccordion();
+    initDynamicYear();
+    initWorkFilter();
+    $(window).trigger('scroll');
+  }
+
+  window.initPageFeatures = initPageFeatures;
+
+  /* ============================================================
      INITIALIZE
   ============================================================ */
   $(document).ready(function () {
     initLenis();
     initCursor();
     initCoverMenu();
-    initHeroParallax();
     initHeaderThemeObserver();
-    initRollingButtons();
-    initScrollObserver();
-    initColumnParallax();
-    initStickyServiceStack();
-    initCounters();
     initProjectModal();
-    initConsultationForm();
     initCopyEmail();
-    initFaqAccordion();
-    initDynamicYear();
+    initPageFeatures();
 
     // Smooth scroll for internal hashes (Lenis-aware)
-    $('a[href^="#"]').on('click', function (e) {
+    $(document).on('click', 'a[href^="#"]', function (e) {
       const href = this.getAttribute('href');
       if (href === '#' || href === '') return;
       const target = $(href);
       if (target.length) {
         e.preventDefault();
+        if (window.closeCoverMenu) window.closeCoverMenu();
         if (lenisInstance) {
           lenisInstance.scrollTo(target[0], { offset: -80, duration: 1.2 });
         } else {
