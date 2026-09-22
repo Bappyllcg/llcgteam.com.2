@@ -9,7 +9,7 @@ const LLCG_DATA = {
     domain: "llcgteam.com",
     tagline: "A digital agency focused on web & digital engineering.",
     email: "hello@llcgteam.com",
-    phone: "+1 (408) 555-0199",
+    phone: "+880 1303-755748",
     location: "Silicon Valley & Global Studio",
     address: "300 Santana Row, Suite 400, San Jose, CA 95128",
     founded: "2011",
