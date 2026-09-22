@@ -83,10 +83,16 @@
         $hamburger.addClass('is-active').attr('aria-expanded', 'true');
         $menu.addClass('is-open');
         $('body').addClass('overflow-hidden');
+        // When cover menu is open, header must be white text on dark menu backdrop
+        $('#mainHeader').addClass('background-is-black theme-dark').removeClass('background-is-white theme-light');
+        $('#headerCta').addClass('background-is-black').removeClass('background-is-white');
+        $('#hamburgerBtn').addClass('background-is-black').removeClass('background-is-white');
       } else {
         $hamburger.removeClass('is-active').attr('aria-expanded', 'false');
         $menu.removeClass('is-open');
         $('body').removeClass('overflow-hidden');
+        // Re-evaluate header theme for current scroll position
+        $(window).trigger('scroll');
       }
     }
 
@@ -108,17 +114,31 @@
   }
 
   /* ============================================================
-     3. HERO LETTERS PARALLAX
+     3. HERO LETTERS & AMBIENT PARALLAX
   ============================================================ */
   function initHeroParallax() {
     const $sculpture = $('#heroSculpture');
+    const $orbit = $('.hero-orbit-circle');
+    const $cross1 = $('.constellation-1');
+    const $cross2 = $('.constellation-2');
+
     if (!$sculpture.length) return;
 
     $(window).on('mousemove', function (e) {
-      const offsetX = (e.clientX / window.innerWidth - 0.5) * 40;
-      const offsetY = (e.clientY / window.innerHeight - 0.5) * 30;
+      const xRatio = (e.clientX / window.innerWidth - 0.5);
+      const yRatio = (e.clientY / window.innerHeight - 0.5);
+
       $sculpture.css({
-        transform: `translate3d(${-offsetX}px, ${-offsetY}px, 0)`
+        transform: `translate3d(${xRatio * -24}px, calc(-50% + ${yRatio * -20}px), 0)`
+      });
+      $orbit.css({
+        transform: `translate3d(${xRatio * 18}px, calc(-50% + ${yRatio * 16}px), 0)`
+      });
+      $cross1.css({
+        transform: `translate3d(${xRatio * 32}px, ${yRatio * 28}px, 0)`
+      });
+      $cross2.css({
+        transform: `translate3d(${xRatio * -22}px, ${yRatio * -18}px, 0)`
       });
     });
 
@@ -126,10 +146,79 @@
       const scrollY = window.scrollY;
       if (scrollY < window.innerHeight) {
         $sculpture.css({
-          transform: `translate3d(0, ${scrollY * 0.25}px, 0)`
+          transform: `translate3d(0, calc(-50% + ${scrollY * 0.35}px), 0)`,
+          opacity: Math.max(0, 0.9 - (scrollY / window.innerHeight) * 1.2)
         });
       }
     });
+  }
+
+  /* ============================================================
+     3B. DYNAMIC HEADER THEME SWITCHING (DARK VS LIGHT SECTIONS)
+  ============================================================ */
+  function initHeaderThemeObserver() {
+    const $header = $('#mainHeader');
+    const $cta = $('#headerCta');
+    const $hamburger = $('#hamburgerBtn');
+    if (!$header.length) return;
+
+    let ticking = false;
+
+    function evaluateTheme() {
+      if (state.isMenuOpen) return;
+
+      // Checkpoint is the vertical center of the fixed header (y ≈ 50px)
+      const checkY = 50;
+      const bodyTheme = document.body.getAttribute('data-theme') || 'dark';
+      let activeTheme = bodyTheme;
+
+      // Query all elements with data-theme (excluding body) in live DOM order
+      const themedElements = document.querySelectorAll('[data-theme]:not(body)');
+      for (let i = 0; i < themedElements.length; i++) {
+        const el = themedElements[i];
+        const rect = el.getBoundingClientRect();
+        // If the header's vertical center lies within this element's bounds
+        if (rect.top <= checkY && rect.bottom > checkY) {
+          activeTheme = el.getAttribute('data-theme') || bodyTheme;
+          break;
+        }
+      }
+
+      const isDark = (activeTheme === 'dark' || activeTheme === 'black');
+
+      if (isDark) {
+        // Dark Section: Header elements turn White
+        $header.addClass('background-is-black theme-dark').removeClass('background-is-white theme-light');
+        $cta.addClass('background-is-black').removeClass('background-is-white');
+        $hamburger.addClass('background-is-black').removeClass('background-is-white');
+      } else {
+        // Light Section: Header elements turn Dark
+        $header.addClass('background-is-white theme-light').removeClass('background-is-black theme-dark');
+        $cta.addClass('background-is-white').removeClass('background-is-black');
+        $hamburger.addClass('background-is-white').removeClass('background-is-black');
+      }
+
+      // Logo scroll morph (Baunfire exact behavior):
+      // When scrolled down past 80px, wordmark collapses to symbol; at top, full wordmark shows
+      const $identity = $('.identity');
+      if (window.scrollY > 80) {
+        $identity.addClass('is-symbol');
+      } else {
+        $identity.removeClass('is-symbol');
+      }
+
+      ticking = false;
+    }
+
+    function onScrollOrResize() {
+      if (!ticking) {
+        requestAnimationFrame(evaluateTheme);
+        ticking = true;
+      }
+    }
+
+    $(window).on('scroll resize', onScrollOrResize);
+    evaluateTheme();
   }
 
   /* ============================================================
@@ -405,12 +494,62 @@
   }
 
   /* ============================================================
+     10. BAUNFIRE STAGGERED ROLLING BUTTONS & PILL BUTTONS
+  ============================================================ */
+  function initRollingButtons() {
+    $('.button-cta, .btn-roll').each(function () {
+      const $el = $(this);
+      if ($el.find('.char-inner').length) return;
+      const text = $el.text().trim();
+      if (!text) return;
+
+      const words = text.split(/\s+/);
+      let charIndex = 0;
+      let html = '<span class="btn-rolling-text" aria-label="' + text + '">';
+      words.forEach((word, wIdx) => {
+        html += '<span class="word">';
+        for (let i = 0; i < word.length; i++) {
+          const c = word[i];
+          html += `<span class="char" style="--i:${charIndex}"><span class="char-inner" data-char="${c}">${c}</span></span>`;
+          charIndex++;
+        }
+        html += '</span>';
+        if (wIdx < words.length - 1) {
+          html += '<span class="space">&nbsp;</span>';
+        }
+      });
+      html += '</span>';
+      $el.empty().append(html);
+    });
+
+    // Pill buttons automated enhancement: Ensure rolling text & circle ripple are present
+    $('.default-button, .hero-pill-button').each(function () {
+      const $btn = $(this);
+      if ($btn.find('.circle-fill').length) return;
+      
+      const text = $btn.find('.text').text().trim() || $btn.text().trim();
+      $btn.empty().append(`
+        <span class="btn-text-roll">
+          <span class="btn-text-main">${text}</span>
+          <span class="btn-text-hover">${text}</span>
+        </span>
+        <span class="circle-fill"></span>
+        <span class="icon-wrap">
+          <span class="plus-icon"></span>
+        </span>
+      `);
+    });
+  }
+
+  /* ============================================================
      INITIALIZE
   ============================================================ */
   $(document).ready(function () {
     initCursor();
     initCoverMenu();
     initHeroParallax();
+    initHeaderThemeObserver();
+    initRollingButtons();
     initWorksReveal();
     initStickyServiceStack();
     initCounters();
@@ -428,5 +567,4 @@
       }
     });
   });
-
 })(jQuery);

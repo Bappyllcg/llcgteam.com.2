@@ -8,7 +8,7 @@
   <link rel="icon" type="image/svg+xml" href="assets/svg/logo.svg">
   <link rel="stylesheet" href="dist/output.css">
 </head>
-<body class="bg-white text-agency-black-2 selection:bg-agency-red selection:text-white">
+<body class="bg-white text-agency-black-2 selection:bg-agency-red selection:text-white" data-theme="white">
 
   <!-- Custom Cursor -->
   <div class="custom-cursor" aria-hidden="true">
@@ -17,29 +17,42 @@
   </div>
 
   <!-- Header -->
-  <header id="mainHeader" class="header py-8 flex items-center justify-between">
-    <a href="index.html" class="flex items-center gap-3 z-50 group" id="headerLogo" data-cursor="hover" aria-label="LLCG Team Home">
-      <div class="w-10 h-10 transition-transform duration-500 group-hover:scale-105">
-        <svg viewBox="0 0 44 44" fill="none" class="w-full h-full">
-          <rect width="44" height="44" rx="10" fill="#1f1e1d" stroke="#f84525" stroke-width="2"/>
-          <path d="M13 14v16h10" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M23 18v12h8" stroke="#f84525" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="31" cy="18" r="2.5" fill="#f84525"/>
-        </svg>
-      </div>
-      <div class="flex flex-col">
-        <span class="font-montserrat font-black text-xl tracking-wider leading-none text-current">LLCG<span class="text-agency-red">.</span></span>
-        <span class="text-[9px] tracking-[0.35em] font-semibold text-sub-gray-3 mt-1">TEAM STUDIO</span>
+  <header id="mainHeader" class="header py-8 flex items-center justify-between transition-all duration-500 theme-light background-is-white">
+    <!-- Animated Logo (.identity) -->
+    <a href="index.html" class="logo-container group" aria-label="LLCG Team Home" data-cursor="hover">
+      <div class="identity">
+        <div class="symbol-box shadow-md">
+          <svg class="symbol-svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4v16h10"/>
+            <path d="M10 9v11h7" stroke="#f84525"/>
+            <circle cx="17" cy="9" r="1.5" fill="#f84525" stroke="none"/>
+          </svg>
+        </div>
+        <div class="letters-wrapper text-current">
+          <span class="char">L</span>
+          <span class="char">L</span>
+          <span class="char">C</span>
+          <span class="char">G</span>
+          <span class="char char-dot font-black">.</span>
+        </div>
       </div>
     </a>
 
-    <div class="flex items-center gap-6 sm:gap-10 z-50">
-      <a href="lets-talk.html" id="headerCta" class="button-cta text-current hidden sm:inline-block" data-cursor="hover">
+    <!-- Header Actions -->
+    <div class="flex items-center gap-8 z-50">
+      <!-- "Let's Talk" button with Baunfire swipe-line animation -->
+      <a href="lets-talk.html" id="headerCta" class="button-cta text-current hidden sm:inline-block background-is-white" data-cursor="hover">
         Let's Talk
       </a>
-      <button id="hamburgerBtn" class="hamburger focus:outline-none" aria-label="Toggle Menu" data-cursor="hover">
+      
+      <!-- Magnetic Hamburger -->
+      <button id="hamburgerBtn" class="hamburger focus:outline-none background-is-white" aria-label="Toggle Navigation Menu" aria-expanded="false" data-cursor="hover">
         <div class="bg-circle shadow-md"></div>
-        <div class="icon-lines"><span class="line"></span><span class="line"></span><span class="line"></span></div>
+        <div class="icon-lines">
+          <span class="line"></span>
+          <span class="line"></span>
+          <span class="line"></span>
+        </div>
       </button>
     </div>
   </header>
@@ -69,7 +82,7 @@
     </div>
   </div>
 
-  <main class="pt-40 pb-32 px-6 md:px-12 max-w-desktop mx-auto">
+  <main class="pt-40 pb-32 px-6 md:px-12 max-w-desktop mx-auto" data-theme="white">
     <!-- Services Hero -->
     <div class="mb-24">
       <span class="type-comp2 text-agency-red block mb-2">CAPABILITIES &amp; SPECIALTIES</span>
@@ -221,13 +234,14 @@
         <span class="type-comp2 text-agency-red block mb-2">START A PROJECT</span>
         <h3 class="font-montserrat font-bold text-2xl sm:text-3xl">Ready to elevate your digital experience?</h3>
       </div>
-      <a href="lets-talk.html" class="px-8 py-4 rounded-lg bg-agency-red text-white font-montserrat font-bold text-xs tracking-widest uppercase hover:bg-orange-600 transition-colors shadow-lg" data-cursor="hover">
-        Schedule Scoping Call &rarr;
+      <a href="lets-talk.html" class="btn-action-primary" data-cursor="hover">
+        <span>Schedule Scoping Call</span>
+        <span class="btn-arrow">&rarr;</span>
       </a>
     </div>
   </main>
 
-  <footer class="py-12 px-6 md:px-12 bg-agency-black-2 text-white border-t border-white/10 text-xs text-sub-gray-3 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center gap-4">
+  <footer class="py-12 px-6 md:px-12 bg-agency-black-2 text-white border-t border-white/10 text-xs text-sub-gray-3 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center gap-4" data-theme="dark">
     <span>&copy; 2026 LLCG Team Studio. All Rights Reserved.</span>
     <div class="flex gap-6 uppercase font-semibold">
       <a href="index.html" class="hover:text-agency-red">Home</a>

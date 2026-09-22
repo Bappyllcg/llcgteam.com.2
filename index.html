@@ -9,7 +9,7 @@
   <link rel="icon" type="image/svg+xml" href="assets/svg/logo.svg">
   <link rel="stylesheet" href="dist/output.css">
 </head>
-<body class="bg-white text-agency-black-2 selection:bg-agency-red selection:text-white">
+<body class="bg-white text-agency-black-2 selection:bg-agency-red selection:text-white" data-theme="dark">
 
   <!-- Custom Magnetic Cursor -->
   <div class="custom-cursor" aria-hidden="true">
@@ -20,7 +20,7 @@
   </div>
 
   <!-- Header -->
-  <header id="mainHeader" class="header py-8 flex items-center justify-between transition-all duration-500">
+  <header id="mainHeader" class="header py-8 flex items-center justify-between transition-all duration-500 theme-dark background-is-black">
     <!-- Animated Logo (.identity) -->
     <a href="index.html" class="logo-container group" aria-label="LLCG Team Home" data-cursor="hover">
       <div class="identity">
@@ -44,12 +44,12 @@
     <!-- Header Actions -->
     <div class="flex items-center gap-8 z-50">
       <!-- "Let's Talk" button with Baunfire swipe-line animation -->
-      <a href="#contact" id="headerCta" class="button-cta text-current hidden sm:inline-block" data-cursor="hover">
+      <a href="#contact" id="headerCta" class="button-cta text-current hidden sm:inline-block background-is-black" data-cursor="hover">
         Let's Talk
       </a>
       
       <!-- Magnetic Hamburger -->
-      <button id="hamburgerBtn" class="hamburger focus:outline-none" aria-label="Toggle Navigation Menu" aria-expanded="false" data-cursor="hover">
+      <button id="hamburgerBtn" class="hamburger focus:outline-none background-is-black" aria-label="Toggle Navigation Menu" aria-expanded="false" data-cursor="hover">
         <div class="bg-circle shadow-md"></div>
         <div class="icon-lines">
           <span class="line"></span>
@@ -133,87 +133,113 @@
   <main>
     
     <!-- ============================================================
-         1. BAUNFIRE HERO SECTION
+         1. BAUNFIRE HERO SECTION (DARK LUXURY THEME MATCHING BAUNFIRE)
     ============================================================ -->
-    <section class="section-hero section-block">
-      <div class="homepage-hero-content">
-        
-        <!-- Giant background sculptural lettering with parallax -->
-        <div class="background" aria-hidden="true">
-          <div class="words hidden-onload animate-load swipe-to-appear">
-            <div class="lettering reveal" id="heroSculpture">
-              <span class="hero-glyph">L</span>
-              <span class="hero-glyph">L</span>
-              <span class="hero-glyph">C</span>
-              <span class="hero-glyph text-agency-red">G</span>
-            </div>
-          </div>
+    <section class="section-hero" data-theme="dark">
+      
+      <!-- Subtle ambient background layer -->
+      <div class="hero-ambient-layer" aria-hidden="true">
+        <!-- Giant delicate wireframe orbit circle -->
+        <div class="hero-orbit-circle"></div>
+
+        <!-- Floating geometric crosshair constellations -->
+        <div class="hero-crosshairs constellation-1">
+          <div class="flex gap-2"><span>+</span><span>+</span></div>
+          <div class="flex gap-2"><span class="cross-accent">+</span><span>+</span><span>+</span></div>
+          <div class="flex gap-2"><span>+</span><span>+</span></div>
+          <div class="flex gap-2"><span>+</span></div>
         </div>
 
-        <!-- Foreground Content -->
+        <div class="hero-crosshairs constellation-2">
+          <div class="flex gap-2"><span>+</span></div>
+          <div class="flex gap-2"><span>+</span><span>+</span></div>
+          <div class="flex gap-2"><span class="cross-accent">+</span><span>+</span></div>
+          <div class="flex gap-2"><span>+</span><span>+</span><span>+</span></div>
+        </div>
+
+        <!-- Giant vertical monumental letters: L L C G -->
+        <div class="hero-monumental-letters" id="heroSculpture">
+          <div class="monument-char">L</div>
+          <div class="monument-char">L</div>
+          <div class="monument-char">C</div>
+          <div class="monument-char accent">G</div>
+        </div>
+      </div>
+
+      <!-- Foreground Content -->
+      <div class="homepage-hero-content">
         <div class="section-hero-content">
-          <!-- Ribbon text with letter split animation -->
-          <h2 class="type-h11 color-red ribbon-text">
-            <span class="inline-block"><span>W</span><span>E</span>&nbsp;</span>
-            <span class="inline-block"><span>A</span><span>R</span><span>E</span>&nbsp;</span>
-            <span class="inline-block"><span>L</span><span>L</span><span>C</span><span>G</span>&nbsp;</span>
-            <span class="inline-block"><span>T</span><span>E</span><span>A</span><span>M</span></span>
+          <!-- Ribbon text with tracked letters -->
+          <h2 class="ribbon-text">
+            <span>WE ARE LLCG TEAM</span>
           </h2>
 
           <div class="inner">
             <!-- Massive headline title with kinetic word split -->
-            <h1 class="type-h3 title text-agency-black-2">
+            <h1 class="hero-title">
               <span class="inline-block">A&nbsp;</span>
               <span class="inline-block">digital&nbsp;</span>
-              <span class="inline-block">agency&nbsp;</span>
+              <span class="inline-block">agency&nbsp;</span><br class="hidden sm:inline" />
               <span class="inline-block">focused&nbsp;</span>
               <span class="inline-block">on&nbsp;</span>
               <span class="inline-block">web<span class="text-agency-red">.</span></span>
             </h1>
 
-            <div class="description color-gray">
+            <p class="hero-description">
               We are a creative team of designers, developers, strategists, and producers building elevated websites in the heart of Silicon Valley.
-            </div>
+            </p>
 
             <!-- Signature Baunfire Pill Button with animated plus icon -->
-            <a href="#manifesto" data-cursor="hover">
-              <button class="default-button type-comp2 theme-black" type="button">
-                <div class="button-background"></div>
-                <div class="text">GET TO KNOW US</div>
-                <div class="plus-icon"></div>
-              </button>
-            </a>
+            <div class="hero-cta-wrapper">
+              <a href="#work" data-cursor="hover">
+                <button class="hero-pill-button" type="button">
+                  <span class="btn-text-roll">
+                    <span class="btn-text-main">GET TO KNOW US</span>
+                    <span class="btn-text-hover">GET TO KNOW US</span>
+                  </span>
+                  <span class="circle-fill"></span>
+                  <span class="icon-wrap">
+                    <span class="plus-icon"></span>
+                  </span>
+                </button>
+              </a>
+            </div>
           </div>
         </div>
-
       </div>
 
-      <!-- Partner Marquee at Hero Bottom -->
-      <div class="max-w-desktop mx-auto w-full px-6 md:px-12 mt-20 pt-8 border-t border-black/10 overflow-hidden">
-        <p class="text-[11px] font-bold tracking-widest text-sub-gray-3 uppercase mb-6">Trusted by High-Velocity Tech Brands</p>
-        <div class="relative overflow-hidden w-full">
-          <div class="animate-marquee items-center gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-            <span class="font-montserrat font-black text-xl tracking-wider text-agency-black-2">STRIPE</span>
-            <span class="font-montserrat font-black text-xl tracking-wider text-agency-black-2">FIGMA</span>
-            <span class="font-montserrat font-black text-xl tracking-wider text-agency-black-2">BREX</span>
-            <span class="font-montserrat font-black text-xl tracking-wider text-agency-black-2">SNOWFLAKE</span>
-            <span class="font-montserrat font-black text-xl tracking-wider text-agency-black-2">DATADOG</span>
-            <span class="font-montserrat font-black text-xl tracking-wider text-agency-black-2">VERCEL</span>
-            <span class="font-montserrat font-black text-xl tracking-wider text-agency-black-2">SUPABASE</span>
-            <span class="font-montserrat font-black text-xl tracking-wider text-agency-black-2">LINEAR</span>
-            <span class="font-montserrat font-black text-xl tracking-wider text-agency-black-2">STRIPE</span>
-            <span class="font-montserrat font-black text-xl tracking-wider text-agency-black-2">FIGMA</span>
-            <span class="font-montserrat font-black text-xl tracking-wider text-agency-black-2">BREX</span>
-            <span class="font-montserrat font-black text-xl tracking-wider text-agency-black-2">SNOWFLAKE</span>
-          </div>
-        </div>
+      <!-- Vertical SCROLL indicator on lower right margin -->
+      <div class="hero-scroll-indicator" aria-hidden="true">
+        <span class="scroll-label">SCROLL</span>
+        <div class="scroll-stem"></div>
       </div>
     </section>
+
+    <!-- Trusted Tech Brands Strip (Positioned seamlessly after Hero) -->
+    <div class="client-marquee-strip py-10 bg-[#171615] border-t border-white/10 overflow-hidden" data-theme="dark">
+      <div class="max-w-desktop mx-auto w-full px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-8">
+        <span class="text-[11px] font-bold tracking-[0.25em] text-white/40 uppercase whitespace-nowrap">Trusted by High-Velocity Brands</span>
+        <div class="relative overflow-hidden w-full max-w-4xl">
+          <div class="animate-marquee items-center gap-14 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+            <span class="font-montserrat font-black text-lg tracking-wider text-white">STRIPE</span>
+            <span class="font-montserrat font-black text-lg tracking-wider text-white">FIGMA</span>
+            <span class="font-montserrat font-black text-lg tracking-wider text-white">BREX</span>
+            <span class="font-montserrat font-black text-lg tracking-wider text-white">SNOWFLAKE</span>
+            <span class="font-montserrat font-black text-lg tracking-wider text-white">DATADOG</span>
+            <span class="font-montserrat font-black text-lg tracking-wider text-white">VERCEL</span>
+            <span class="font-montserrat font-black text-lg tracking-wider text-white">SUPABASE</span>
+            <span class="font-montserrat font-black text-lg tracking-wider text-white">LINEAR</span>
+            <span class="font-montserrat font-black text-lg tracking-wider text-white">STRIPE</span>
+            <span class="font-montserrat font-black text-lg tracking-wider text-white">FIGMA</span>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- ============================================================
          2. FEATURED WORK SECTION (Baunfire Staggered 3D Tilt Cards)
     ============================================================ -->
-    <section id="work" class="section-works section-block">
+    <section id="work" class="section-works section-block" data-theme="white">
       <div class="works-content">
         
         <div class="works-head">
@@ -224,8 +250,8 @@
             </h2>
             <p class="text-sub-gray-2 text-base mt-2">Explore some of our latest website projects.</p>
           </div>
-          <a href="work.html" class="button-cta text-agency-black-2 hover:text-agency-red" data-cursor="hover">
-            View more work &rarr;
+          <a href="work.html" class="button-cta text-agency-black-2" data-cursor="hover">
+            View More Work
           </a>
         </div>
 
@@ -356,9 +382,14 @@
                 </p>
                 <a href="services.html" data-cursor="hover">
                   <button class="default-button type-comp2 theme-black" type="button">
-                    <div class="button-background"></div>
-                    <div class="text">View Our Services</div>
-                    <div class="plus-icon"></div>
+                    <span class="btn-text-roll">
+                      <span class="btn-text-main">View Our Services</span>
+                      <span class="btn-text-hover">View Our Services</span>
+                    </span>
+                    <span class="circle-fill"></span>
+                    <span class="icon-wrap">
+                      <span class="plus-icon"></span>
+                    </span>
                   </button>
                 </a>
               </div>
@@ -385,9 +416,14 @@
                 </p>
                 <a href="services.html" data-cursor="hover">
                   <button class="default-button type-comp2 theme-black" type="button">
-                    <div class="button-background"></div>
-                    <div class="text">View Our Services</div>
-                    <div class="plus-icon"></div>
+                    <span class="btn-text-roll">
+                      <span class="btn-text-main">View Our Services</span>
+                      <span class="btn-text-hover">View Our Services</span>
+                    </span>
+                    <span class="circle-fill"></span>
+                    <span class="icon-wrap">
+                      <span class="plus-icon"></span>
+                    </span>
                   </button>
                 </a>
               </div>
@@ -414,9 +450,14 @@
                 </p>
                 <a href="services.html" data-cursor="hover">
                   <button class="default-button type-comp2 theme-black" type="button">
-                    <div class="button-background"></div>
-                    <div class="text">View Our Services</div>
-                    <div class="plus-icon"></div>
+                    <span class="btn-text-roll">
+                      <span class="btn-text-main">View Our Services</span>
+                      <span class="btn-text-hover">View Our Services</span>
+                    </span>
+                    <span class="circle-fill"></span>
+                    <span class="icon-wrap">
+                      <span class="plus-icon"></span>
+                    </span>
                   </button>
                 </a>
               </div>
@@ -470,8 +511,8 @@
           <span class="type-comp2 text-agency-red block mb-2">THOUGHT LEADERSHIP</span>
           <h2 class="type-h3 text-agency-black-2">Latest Insights</h2>
         </div>
-        <a href="#contact" class="button-cta text-agency-black-2 hover:text-agency-red" data-cursor="hover">
-          View more insights &rarr;
+        <a href="#contact" class="button-cta text-agency-black-2" data-cursor="hover">
+          View More Insights
         </a>
       </div>
 
@@ -660,7 +701,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-16 px-6 md:px-12 bg-agency-black-2 text-white border-t border-white/10">
+    <footer class="py-16 px-6 md:px-12 bg-agency-black-2 text-white border-t border-white/10" data-theme="dark">
       <div class="max-w-desktop mx-auto flex flex-col md:flex-row items-center justify-between gap-8 text-xs text-sub-gray-3">
         <div class="flex items-center gap-3">
           <span class="font-montserrat font-black text-lg text-white">LLCG<span class="text-agency-red">.</span></span>

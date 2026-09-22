@@ -175,13 +175,15 @@ body.theme-black {
 .logo-container {
   display: inline-block;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .identity {
   position: relative;
   display: flex;
   align-items: center;
-  height: 40px;
+  height: 42px;
+  cursor: pointer;
   transition: opacity 0.85s var(--primary-ease);
 }
 
@@ -195,13 +197,17 @@ body.theme-black {
   justify-content: center;
   position: relative;
   overflow: hidden;
-  transition: transform 0.6s var(--primary-ease), background-color 0.4s var(--primary-ease);
+  flex-shrink: 0;
+  transition: transform 0.6s var(--primary-ease), 
+              background-color 0.4s var(--primary-ease), 
+              border-color 0.4s var(--primary-ease);
   z-index: 2;
 }
 
 .identity:hover .symbol-box {
   transform: rotate(90deg) scale(1.08);
-  background-color: var(--color-primary-red);
+  background-color: var(--color-primary-red) !important;
+  border-color: var(--color-primary-red) !important;
 }
 
 .identity .symbol-box .symbol-svg {
@@ -214,11 +220,38 @@ body.theme-black {
   transform: rotate(-90deg);
 }
 
+/* Horizontal accordion wordmark: collapses to symbol on scroll, expands on hover */
 .identity .letters-wrapper {
   display: flex;
   align-items: baseline;
   margin-left: 12px;
   overflow: hidden;
+  max-width: 140px;
+  opacity: 1;
+  transform: translateX(0);
+  white-space: nowrap;
+  transition: max-width 0.55s var(--primary-ease), 
+              opacity 0.4s var(--primary-ease), 
+              transform 0.5s var(--primary-ease), 
+              margin-left 0.45s var(--primary-ease);
+}
+
+/* When Scrolled Past Hero: Collapse wordmark to compact icon */
+.identity.is-symbol .letters-wrapper {
+  max-width: 0;
+  opacity: 0;
+  transform: translateX(-8px);
+  margin-left: 0;
+  pointer-events: none;
+}
+
+/* Hovering while scrolled down smoothly reveals the wordmark again */
+.identity.is-symbol:hover .letters-wrapper {
+  max-width: 140px;
+  opacity: 1;
+  transform: translateX(0);
+  margin-left: 12px;
+  pointer-events: auto;
 }
 
 .identity .char {
@@ -243,214 +276,622 @@ body.theme-black {
 .identity:hover .char:nth-child(5) { transform: scale(1.4); transition-delay: 0.16s; }
 
 /* ============================================================
-   2. "LET'S TALK" BUTTON HOVER ANIMATION (.button-cta)
+   2. BAUNFIRE "LET'S TALK" & ROLLING BUTTONS (.button-cta, .btn-roll)
 ============================================================ */
-.button-cta {
+.button-cta,
+.btn-roll {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 13px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   position: relative;
-  display: inline-block;
-  padding-bottom: 5px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-bottom: 4px;
   cursor: pointer;
+  text-decoration: none;
   transition: color 0.45s var(--primary-ease);
 }
 
-.button-cta::after {
+.button-cta .btn-rolling-text,
+.btn-roll .btn-rolling-text {
+  display: inline-flex;
+  align-items: baseline;
+  overflow: hidden;
+  height: 1.25em;
+  line-height: 1.25em;
+}
+
+.button-cta .word,
+.btn-roll .word {
+  display: inline-flex;
+}
+
+.button-cta .space,
+.btn-roll .space {
+  display: inline-block;
+  width: 0.35em;
+}
+
+.button-cta .char,
+.btn-roll .char {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  height: 1.25em;
+}
+
+.button-cta .char-inner,
+.btn-roll .char-inner {
+  display: block;
+  position: relative;
+  transform: translateY(0%);
+  transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+  transition-delay: calc(var(--i, 0) * 20ms);
+}
+
+.button-cta .char-inner::after,
+.btn-roll .char-inner::after {
+  content: attr(data-char);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--color-primary-red);
+}
+
+.button-cta:hover .char-inner,
+.btn-roll:hover .char-inner {
+  transform: translateY(-100%);
+}
+
+/* Two-Phase Infinite Swipe Underline (Baunfire exact kinetics) */
+.button-cta::after,
+.btn-roll::after {
   content: "";
   display: block;
   width: 100%;
   height: 1.5px;
   background-color: currentColor;
-  margin-top: 5px;
-  transform-origin: right;
-  transition: all 0.45s var(--primary-ease);
+  margin-top: 4px;
+  transform-origin: right center;
+  transition: transform 0.45s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
 @media (min-width: 769px) {
-  .button-cta:hover::after {
-    animation: swipe-line 0.75s var(--primary-ease) forwards;
+  .button-cta:hover::after,
+  .btn-roll:hover::after {
+    animation: baunfire-swipe-underline 0.65s cubic-bezier(0.76, 0, 0.24, 1) forwards;
   }
 }
 
-@keyframes swipe-line {
+@keyframes baunfire-swipe-underline {
   0% {
     transform: scaleX(1);
-    transform-origin: right;
+    transform-origin: right center;
   }
   49% {
     transform: scaleX(0);
-    transform-origin: right;
+    transform-origin: right center;
   }
   50% {
     transform: scaleX(0);
-    transform-origin: left;
+    transform-origin: left center;
   }
   100% {
     transform: scaleX(1);
-    transform-origin: left;
+    transform-origin: left center;
   }
 }
 
 /* ============================================================
-   3. BAUNFIRE PILL BUTTON (.default-button)
+   3. BAUNFIRE PILL BUTTON (.default-button & .hero-pill-button)
 ============================================================ */
-.default-button {
+.default-button,
+.hero-pill-button {
   position: relative;
   display: inline-flex;
   align-items: center;
-  height: 52px;
-  padding: 0 32px;
+  justify-content: space-between;
+  height: 54px;
+  padding: 0 8px 0 30px;
   cursor: pointer;
   overflow: hidden;
-  border-radius: 26px;
-  transition: transform 0.45s var(--primary-ease);
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 0.45s var(--primary-ease), 
+              border-color 0.45s var(--primary-ease), 
+              box-shadow 0.45s var(--primary-ease),
+              background-color 0.45s var(--primary-ease);
+  isolation: isolate;
+  text-decoration: none;
 }
 
-.default-button .button-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 26px;
-  transition: transform 0.45s var(--primary-ease), background-color 0.45s var(--primary-ease);
-  z-index: 1;
-}
-
-.default-button.theme-white .button-background {
-  background-color: var(--color-primary-white);
-}
-
-.default-button.theme-white .text {
+/* Theme variants */
+.default-button.theme-white {
+  background-color: #f7f7f6;
+  border-color: rgba(0, 0, 0, 0.1);
   color: var(--color-primary-black-1);
 }
 
-.default-button.theme-black .button-background {
+.default-button.theme-black {
+  background-color: #171615;
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+/* Liquid Circle Expand Background Fill */
+.default-button .circle-fill,
+.hero-pill-button .circle-fill {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  width: 40px;
+  height: 40px;
+  margin-top: -20px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  transform: scale(1);
+  transform-origin: center center;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), 
+              background-color 0.45s var(--primary-ease);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-pill-button .circle-fill {
+  background-color: #ffffff;
+}
+
+.default-button.theme-black .circle-fill {
+  background-color: var(--color-primary-red);
+}
+
+.default-button.theme-white .circle-fill {
   background-color: var(--color-primary-black-1);
 }
 
-.default-button.theme-black .text {
-  color: var(--color-primary-white);
+/* On Hover: Circle floods the entire button */
+.default-button:hover .circle-fill,
+.hero-pill-button:hover .circle-fill {
+  transform: scale(16);
 }
 
-.default-button .text {
+/* Rolling Text Container */
+.default-button .btn-text-roll,
+.hero-pill-button .btn-text-roll {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  overflow: hidden;
+  height: 1.3em;
+  line-height: 1.3em;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-right: 20px;
+  transition: transform 0.45s var(--primary-ease), color 0.35s ease;
+}
+
+.default-button:hover .btn-text-roll,
+.hero-pill-button:hover .btn-text-roll {
+  transform: translateX(4px);
+}
+
+.default-button .btn-text-main,
+.hero-pill-button .btn-text-main {
+  display: block;
+  transform: translateY(0%);
+  transition: transform 0.45s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.default-button .btn-text-hover,
+.hero-pill-button .btn-text-hover {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: block;
+  width: 100%;
+  transform: translateY(0%);
+  transition: transform 0.45s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.default-button:hover .btn-text-main,
+.hero-pill-button:hover .btn-text-main {
+  transform: translateY(-100%);
+}
+
+.default-button:hover .btn-text-hover,
+.hero-pill-button:hover .btn-text-hover {
+  transform: translateY(-100%);
+}
+
+/* Text Color inverting when flood finishes */
+.hero-pill-button:hover .btn-text-roll {
+  color: #111111;
+}
+
+.default-button.theme-black:hover .btn-text-roll {
+  color: #ffffff;
+}
+
+.default-button.theme-white:hover .btn-text-roll {
+  color: #ffffff;
+}
+
+/* Fallback for legacy .text class if present without .btn-text-roll */
+.default-button .text,
+.hero-pill-button .text {
   position: relative;
   z-index: 2;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 12px;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
+  margin-right: 20px;
+  transition: transform 0.45s var(--primary-ease), color 0.35s ease;
 }
 
-.default-button .plus-icon {
+.default-button:hover .text,
+.hero-pill-button:hover .text {
+  transform: translateX(4px);
+}
+
+.hero-pill-button:hover .text {
+  color: #111111;
+}
+
+.default-button.theme-black:hover .text {
+  color: #ffffff;
+}
+
+.default-button.theme-white:hover .text {
+  color: #ffffff;
+}
+
+/* Icon Wrap badge on right edge */
+.default-button .icon-wrap,
+.hero-pill-button .icon-wrap {
   position: relative;
   z-index: 2;
-  width: 14px;
-  height: 14px;
-  margin-left: 16px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.45s var(--primary-ease);
+  flex-shrink: 0;
+  border-radius: 50%;
+  transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1), 
+              color 0.35s ease;
+}
+
+.hero-pill-button .icon-wrap {
+  color: #111111;
+}
+
+.hero-pill-button:hover .icon-wrap {
+  color: #111111;
+}
+
+.default-button.theme-black .icon-wrap {
+  color: #ffffff;
+}
+
+.default-button.theme-white .icon-wrap {
+  color: #ffffff;
+}
+
+.default-button .plus-icon,
+.hero-pill-button .plus-icon {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
 .default-button .plus-icon::before,
-.default-button .plus-icon::after {
+.default-button .plus-icon::after,
+.hero-pill-button .plus-icon::before,
+.hero-pill-button .plus-icon::after {
   content: '';
   position: absolute;
   background-color: currentColor;
   transition: transform 0.45s var(--primary-ease);
 }
 
-.default-button.theme-white .plus-icon { color: var(--color-primary-black-1); }
-.default-button.theme-black .plus-icon { color: var(--color-primary-white); }
+.default-button .plus-icon::before,
+.hero-pill-button .plus-icon::before {
+  top: 5.25px;
+  left: 0;
+  width: 12px;
+  height: 1.5px;
+}
 
-.default-button .plus-icon::before { width: 14px; height: 1.5px; }
-.default-button .plus-icon::after { width: 1.5px; height: 14px; }
+.default-button .plus-icon::after,
+.hero-pill-button .plus-icon::after {
+  top: 0;
+  left: 5.25px;
+  width: 1.5px;
+  height: 12px;
+}
 
-.default-button:hover { transform: scale(1.04); }
-.default-button:hover .plus-icon { transform: rotate(90deg) scale(1.15); }
+.default-button:hover,
+.hero-pill-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.3);
+}
+
+.default-button:hover .plus-icon,
+.hero-pill-button:hover .plus-icon {
+  transform: rotate(90deg) scale(1.15);
+}
 
 /* ============================================================
-   4. BAUNFIRE HERO SECTION (.homepage-hero-content)
+   3B. BAUNFIRE PRIMARY ACTION BUTTONS (.btn-action-primary)
+============================================================ */
+.btn-action-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 36px;
+  border-radius: 12px;
+  background-color: var(--color-primary-red);
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.45s var(--primary-ease), 
+              box-shadow 0.45s var(--primary-ease), 
+              background-color 0.4s var(--primary-ease);
+  isolation: isolate;
+  text-decoration: none;
+}
+
+.btn-action-primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.btn-action-primary .btn-arrow {
+  display: inline-block;
+  transition: transform 0.45s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.btn-action-primary:hover {
+  transform: translateY(-3px) scale(1.02);
+  background-color: #e03617;
+  box-shadow: 0 16px 32px -8px rgba(248, 69, 37, 0.45);
+}
+
+.btn-action-primary:hover::before {
+  opacity: 1;
+}
+
+.btn-action-primary:hover .btn-arrow {
+  transform: translateX(6px);
+}
+
+.btn-action-primary:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
+/* ============================================================
+   4. BAUNFIRE HERO SECTION (.section-hero)
 ============================================================ */
 .section-hero {
   position: relative;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding-bottom: 80px;
-  padding-top: 160px;
-  overflow: hidden;
-  background-color: var(--color-primary-white);
-}
-
-.homepage-hero-content {
-  position: relative;
   width: 100%;
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 0 40px;
+  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: #171615; /* Exact Baunfire dark luxury background */
+  color: #ffffff;
+  z-index: 10;
 }
 
-.homepage-hero-content .background {
+@media (max-width: 768px) {
+  .section-hero {
+    height: auto;
+    min-height: 100vh;
+    padding-top: 140px;
+    padding-bottom: 80px;
+  }
+}
+
+/* Subtle Ambient Background Layer */
+.hero-ambient-layer {
   position: absolute;
-  top: -120px;
-  right: -60px;
+  inset: 0;
   pointer-events: none;
+  overflow: hidden;
   z-index: 1;
   user-select: none;
 }
 
-.homepage-hero-content .lettering {
+/* Giant wireframe orbit circle */
+.hero-orbit-circle {
+  position: absolute;
+  width: clamp(580px, 52vw, 860px);
+  height: clamp(580px, 52vw, 860px);
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  right: -6%;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: transform 0.6s ease-out;
+}
+
+/* Floating Crosshair Constellations */
+.hero-crosshairs {
+  position: absolute;
   display: flex;
-  gap: 10px;
-  align-items: flex-start;
-  opacity: 0.14;
-  transform: translate3d(0, 0, 0);
-  transition: transform 1.25s var(--primary-ease), opacity 1.25s var(--primary-ease);
+  flex-direction: column;
+  gap: 6px;
+  font-family: monospace;
+  font-size: 13px;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.22);
+  letter-spacing: 6px;
+  pointer-events: none;
+  transition: transform 0.6s ease-out;
 }
 
-.homepage-hero-content:hover .lettering {
-  opacity: 0.22;
-  transform: translate3d(-20px, 0, 0);
+.hero-crosshairs.constellation-1 {
+  right: 23%;
+  top: 42%;
 }
 
-.homepage-hero-content .hero-glyph {
+.hero-crosshairs.constellation-2 {
+  left: 52%;
+  bottom: 8%;
+}
+
+.hero-crosshairs .cross-accent {
+  color: var(--color-primary-red);
+  font-weight: bold;
+}
+
+/* Giant Vertical Monumental Letters */
+.hero-monumental-letters {
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 0.76;
+  pointer-events: none;
+  opacity: 0.9;
+  transition: transform 0.6s ease-out;
+}
+
+.hero-monumental-letters .monument-char {
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
-  font-size: 340px;
-  line-height: 0.8;
-  color: var(--color-primary-black-1);
-  letter-spacing: -0.05em;
-  display: inline-block;
+  font-size: clamp(160px, 19vh, 260px);
+  color: rgba(255, 255, 255, 0.038);
+  letter-spacing: -0.04em;
+  transition: transform 1.2s var(--primary-ease), color 0.6s ease;
 }
-@media (max-width: 1280px) { .homepage-hero-content .hero-glyph { font-size: 240px; } }
-@media (max-width: 768px) { .homepage-hero-content .hero-glyph { font-size: 130px; } }
+
+.hero-monumental-letters .monument-char.accent {
+  color: rgba(248, 69, 37, 0.07);
+}
+
+/* Foreground Content */
+.homepage-hero-content {
+  position: relative;
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 60px;
+  z-index: 5;
+}
+
+@media (max-width: 768px) {
+  .homepage-hero-content { padding: 0 24px; }
+}
 
 .section-hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 960px;
+  max-width: 780px;
 }
 
-.section-hero-content .ribbon-text { margin-bottom: 24px; }
-.section-hero-content .title { margin-bottom: 28px; }
-.section-hero-content .description {
-  font-size: 20px;
-  line-height: 36px;
-  letter-spacing: 0.03em;
-  max-width: 580px;
-  margin-bottom: 44px;
-  color: var(--color-sub-gray-1);
+.section-hero-content .ribbon-text {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.32em;
+  color: var(--color-primary-red);
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  display: block;
 }
+
+.hero-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: clamp(44px, 5.2vw, 76px);
+  line-height: 1.12;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  margin-bottom: 28px;
+}
+
+.hero-description {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  line-height: 1.68;
+  color: #a1a1a1;
+  max-width: 520px;
+  margin-bottom: 44px;
+}
+
 @media (max-width: 768px) {
-  .section-hero-content .description { font-size: 16px; line-height: 28px; }
+  .hero-description {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 32px;
+  }
+}
+
+/* Hero CTA Wrapper */
+.hero-cta-wrapper {
+  margin-top: 36px;
+}
+
+/* Vertical SCROLL Indicator */
+.hero-scroll-indicator {
+  position: absolute;
+  right: 50px;
+  bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.hero-scroll-indicator .scroll-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  color: rgba(255, 255, 255, 0.4);
+  writing-mode: vertical-rl;
+}
+
+.hero-scroll-indicator .scroll-stem {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
 }
 
 /* ============================================================
@@ -874,9 +1315,149 @@ body.theme-black {
   left: 0;
   right: 0;
   z-index: 100;
+  transition: color 0.4s var(--primary-ease);
 }
 @media (max-width: 768px) {
   .header { max-width: calc(100% - 36px); }
+}
+
+/* Dynamic Header Themes (Baunfire Architecture) */
+.header .identity,
+.header .identity .char,
+.header .identity .symbol-box,
+.header .button-cta,
+.header .button-cta::after,
+.header .hamburger .bg-circle,
+.header .hamburger .line {
+  transition: color 0.45s var(--primary-ease), 
+              background-color 0.45s var(--primary-ease), 
+              border-color 0.45s var(--primary-ease),
+              stroke 0.45s var(--primary-ease),
+              transform 0.45s var(--primary-ease);
+}
+
+/* --- Dark Section State (.background-is-black / .theme-dark) --- */
+.header.background-is-black,
+.header.theme-dark {
+  color: #ffffff !important;
+}
+
+.header.background-is-black .identity .char,
+.header.theme-dark .identity .char {
+  color: #ffffff !important;
+}
+
+.header.background-is-black .identity .char-dot,
+.header.theme-dark .identity .char-dot {
+  color: var(--color-primary-red) !important;
+}
+
+.header.background-is-black .identity .symbol-box,
+.header.theme-dark .identity .symbol-box {
+  background-color: #242322 !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.header.background-is-black .identity:hover .symbol-box,
+.header.theme-dark .identity:hover .symbol-box {
+  background-color: var(--color-primary-red) !important;
+  border-color: var(--color-primary-red) !important;
+}
+
+.header.background-is-black .button-cta,
+.header.theme-dark .button-cta,
+.button-cta.background-is-black {
+  color: #ffffff !important;
+}
+
+.header.background-is-black .button-cta::after,
+.header.theme-dark .button-cta::after,
+.button-cta.background-is-black::after {
+  background-color: #ffffff !important;
+}
+
+.header.background-is-black .hamburger .bg-circle,
+.header.theme-dark .hamburger .bg-circle,
+.hamburger.background-is-black .bg-circle {
+  background-color: #ffffff !important;
+}
+
+.header.background-is-black .hamburger .line,
+.header.theme-dark .hamburger .line,
+.hamburger.background-is-black .line {
+  background-color: var(--color-primary-black-1) !important;
+}
+
+.header.background-is-black .hamburger.is-active .bg-circle,
+.header.theme-dark .hamburger.is-active .bg-circle {
+  background-color: var(--color-primary-red) !important;
+}
+
+.header.background-is-black .hamburger.is-active .line,
+.header.theme-dark .hamburger.is-active .line {
+  background-color: #ffffff !important;
+}
+
+/* --- Light Section State (.background-is-white / .theme-light) --- */
+.header.background-is-white,
+.header.theme-light {
+  color: var(--color-primary-black-1) !important;
+}
+
+.header.background-is-white .identity .char,
+.header.theme-light .identity .char {
+  color: var(--color-primary-black-1) !important;
+}
+
+.header.background-is-white .identity .char-dot,
+.header.theme-light .identity .char-dot {
+  color: var(--color-primary-red) !important;
+}
+
+.header.background-is-white .identity .symbol-box,
+.header.theme-light .identity .symbol-box {
+  background-color: var(--color-primary-black-1) !important;
+  border: 1px solid transparent !important;
+}
+
+.header.background-is-white .identity:hover .symbol-box,
+.header.theme-light .identity:hover .symbol-box {
+  background-color: var(--color-primary-red) !important;
+  border-color: var(--color-primary-red) !important;
+}
+
+.header.background-is-white .button-cta,
+.header.theme-light .button-cta,
+.button-cta.background-is-white {
+  color: var(--color-primary-black-1) !important;
+}
+
+.header.background-is-white .button-cta::after,
+.header.theme-light .button-cta::after,
+.button-cta.background-is-white::after {
+  background-color: var(--color-primary-black-1) !important;
+}
+
+.header.background-is-white .hamburger .bg-circle,
+.header.theme-light .hamburger .bg-circle,
+.hamburger.background-is-white .bg-circle {
+  background-color: var(--color-primary-black-1) !important;
+}
+
+.header.background-is-white .hamburger .line,
+.header.theme-light .hamburger .line,
+.hamburger.background-is-white .line {
+  background-color: #ffffff !important;
+}
+
+.header.background-is-white .hamburger.is-active .bg-circle,
+.header.theme-light .hamburger.is-active .bg-circle {
+  background-color: var(--color-primary-red) !important;
+}
+
+.header.background-is-white .hamburger.is-active .line,
+.header.theme-light .hamburger.is-active .line {
+  background-color: #ffffff !important;
 }
 
 /* Hamburger */
