@@ -18,6 +18,22 @@ const LLCG_DATA = {
     usersReached: "500M+"
   },
 
+  navigation: [
+    { number: "01", label: "HOME", href: "./", key: "home" },
+    { number: "02", label: "WORK", href: "work", key: "work" },
+    { number: "03", label: "SERVICES", href: "services", key: "services" },
+    { number: "04", label: "ABOUT", href: "about", key: "about" },
+    { number: "05", label: "CONTACT", href: "lets-talk", key: "contact" }
+  ],
+
+  footerLinks: [
+    { label: "Home", href: "./" },
+    { label: "Work", href: "work" },
+    { label: "Services", href: "services" },
+    { label: "About", href: "about" },
+    { label: "Contact", href: "lets-talk" }
+  ],
+
   projects: [
     {
       id: "novapay",

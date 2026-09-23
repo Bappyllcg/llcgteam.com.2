@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Selected Work — LLCG Team Studio</title>
-  <meta name="description" content="Explore our portfolio of enterprise web applications, 3D WebGL platforms, and conversion-engineered digital products.">
+  <meta name="description"
+    content="Explore our portfolio of enterprise web applications, 3D WebGL platforms, and conversion-engineered digital products.">
   <link rel="icon" type="image/svg+xml" href="assets/svg/logo.svg">
   <link rel="stylesheet" href="dist/output.css">
 </head>
+
 <body class="bg-white text-agency-black-2 selection:bg-agency-red selection:text-white" data-theme="white">
 
   <!-- Custom Magnetic Cursor -->
@@ -19,15 +22,17 @@
   </div>
 
   <!-- Header -->
-  <header id="mainHeader" class="header py-8 flex items-center justify-between transition-all duration-500 theme-light background-is-white">
+  <header id="mainHeader"
+    class="header py-8 flex items-center justify-between transition-all duration-500 theme-light background-is-white">
     <!-- Animated Logo (.identity) -->
     <a href="./" class="logo-container group" aria-label="LLCG Team Home" data-cursor="hover">
       <div class="identity">
         <div class="symbol-box shadow-md">
-          <svg class="symbol-svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 4v16h10"/>
-            <path d="M10 9v11h7" stroke="#f84525"/>
-            <circle cx="17" cy="9" r="1.5" fill="#f84525" stroke="none"/>
+          <svg class="symbol-svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4v16h10" />
+            <path d="M10 9v11h7" stroke="#f84525" />
+            <circle cx="17" cy="9" r="1.5" fill="#f84525" stroke="none" />
           </svg>
         </div>
         <div class="letters-wrapper text-current">
@@ -43,12 +48,14 @@
     <!-- Header Actions -->
     <div class="flex items-center gap-8 z-50">
       <!-- "Let's Talk" button with Baunfire swipe-line animation -->
-      <a href="lets-talk" id="headerCta" class="button-cta text-current hidden sm:inline-block background-is-white" data-cursor="hover">
+      <a href="lets-talk" id="headerCta" class="button-cta text-current hidden sm:inline-block background-is-white"
+        data-cursor="hover">
         Let's Talk
       </a>
-      
+
       <!-- Magnetic Hamburger -->
-      <button id="hamburgerBtn" class="hamburger focus:outline-none background-is-white" aria-label="Toggle Navigation Menu" aria-expanded="false" data-cursor="hover">
+      <button id="hamburgerBtn" class="hamburger focus:outline-none background-is-white"
+        aria-label="Toggle Navigation Menu" aria-expanded="false" data-cursor="hover">
         <div class="bg-circle shadow-md"></div>
         <div class="icon-lines">
           <span class="line"></span>
@@ -61,21 +68,29 @@
 
   <!-- Fullscreen Cover Menu -->
   <div id="coverMenu" class="cover-menu flex items-center justify-center">
-    <div class="w-full max-w-desktop px-6 md:px-12 py-16 flex flex-col md:flex-row justify-between items-start md:items-end gap-12 relative z-20">
+    <div
+      class="w-full max-w-desktop px-6 md:px-12 py-16 flex flex-col md:flex-row justify-between items-start md:items-end gap-12 relative z-20">
       <div class="flex flex-col">
         <span class="text-xs font-bold tracking-[0.3em] uppercase text-sub-gray-3 mb-6 block">Navigation</span>
         <ul class="flex flex-col space-y-4">
-          <li class="menu-nav-item"><a href="./" class="menu-nav-link" data-cursor="hover"><span class="numbering font-mono">01</span><span class="menu-word">HOME</span></a></li>
-          <li class="menu-nav-item"><a href="work" class="menu-nav-link is-active" data-cursor="hover"><span class="numbering font-mono">02</span><span class="menu-word">WORK</span></a></li>
-          <li class="menu-nav-item"><a href="services" class="menu-nav-link" data-cursor="hover"><span class="numbering font-mono">03</span><span class="menu-word">SERVICES</span></a></li>
-          <li class="menu-nav-item"><a href="about" class="menu-nav-link" data-cursor="hover"><span class="numbering font-mono">04</span><span class="menu-word">ABOUT</span></a></li>
-          <li class="menu-nav-item"><a href="lets-talk" class="menu-nav-link" data-cursor="hover"><span class="numbering font-mono">05</span><span class="menu-word">CONTACT</span></a></li>
+          <li class="menu-nav-item"><a href="./" class="menu-nav-link" data-cursor="hover"><span
+                class="numbering font-mono">01</span><span class="menu-word">HOME</span></a></li>
+          <li class="menu-nav-item"><a href="work" class="menu-nav-link" data-cursor="hover"><span
+                class="numbering font-mono">02</span><span class="menu-word">WORK</span></a></li>
+          <li class="menu-nav-item"><a href="services" class="menu-nav-link" data-cursor="hover"><span
+                class="numbering font-mono">03</span><span class="menu-word">SERVICES</span></a></li>
+          <li class="menu-nav-item"><a href="about" class="menu-nav-link" data-cursor="hover"><span
+                class="numbering font-mono">04</span><span class="menu-word">ABOUT</span></a></li>
+          <li class="menu-nav-item"><a href="lets-talk" class="menu-nav-link is-active" data-cursor="hover"><span
+                class="numbering font-mono">05</span><span class="menu-word">CONTACT</span></a></li>
         </ul>
       </div>
       <div class="flex flex-col text-white/80 space-y-6 max-w-sm">
         <div>
           <span class="text-xs font-bold tracking-[0.25em] uppercase text-agency-red block mb-2">Direct Contact</span>
-          <a href="mailto:hello@llcgteam.com" class="text-xl font-medium text-white hover:text-agency-red transition-colors" data-cursor="hover">hello@llcgteam.com</a>
+          <a href="mailto:hello@llcgteam.com"
+            class="text-xl font-medium text-white hover:text-agency-red transition-colors"
+            data-cursor="hover">hello@llcgteam.com</a>
         </div>
         <p class="text-sm text-sub-gray-4 leading-relaxed">
           300 Santana Row, Suite 400<br>San Jose, CA 95128
@@ -90,34 +105,53 @@
       <span class="type-comp2 text-agency-red block mb-2">PORTFOLIO</span>
       <h1 class="type-h2 text-agency-black-2 mb-6">Selected Work</h1>
       <p class="text-sub-gray-1 max-w-2xl text-lg leading-relaxed">
-        A curated showcase of high-impact websites, web applications, and brand identities engineered for market dominance.
+        A curated showcase of high-impact websites, web applications, and brand identities engineered for market
+        dominance.
       </p>
     </div>
 
     <!-- Category Filters -->
-    <div class="flex flex-wrap gap-3 pb-8 mb-12 border-b border-black/10 text-xs font-montserrat font-bold tracking-widest uppercase reveal-fade-up delay-100" id="workFilters">
-      <button class="filter-btn px-5 py-2.5 rounded-full bg-agency-black-1 text-white transition-all focus:outline-none" data-filter="all" data-cursor="hover">All Work</button>
-      <button class="filter-btn px-5 py-2.5 rounded-full bg-black/5 text-sub-gray-2 hover:bg-black/10 transition-all focus:outline-none" data-filter="fintech" data-cursor="hover">Fintech</button>
-      <button class="filter-btn px-5 py-2.5 rounded-full bg-black/5 text-sub-gray-2 hover:bg-black/10 transition-all focus:outline-none" data-filter="robotics" data-cursor="hover">Robotics &amp; AI</button>
-      <button class="filter-btn px-5 py-2.5 rounded-full bg-black/5 text-sub-gray-2 hover:bg-black/10 transition-all focus:outline-none" data-filter="cloud" data-cursor="hover">Cloud Infrastructure</button>
-      <button class="filter-btn px-5 py-2.5 rounded-full bg-black/5 text-sub-gray-2 hover:bg-black/10 transition-all focus:outline-none" data-filter="biotech" data-cursor="hover">BioTech &amp; Health</button>
+    <div
+      class="flex flex-wrap gap-3 pb-8 mb-12 border-b border-black/10 text-xs font-montserrat font-bold tracking-widest uppercase reveal-fade-up delay-100"
+      id="workFilters">
+      <button class="filter-btn px-5 py-2.5 rounded-full bg-agency-black-1 text-white transition-all focus:outline-none"
+        data-filter="all" data-cursor="hover">All Work</button>
+      <button
+        class="filter-btn px-5 py-2.5 rounded-full bg-black/5 text-sub-gray-2 hover:bg-black/10 transition-all focus:outline-none"
+        data-filter="fintech" data-cursor="hover">Fintech</button>
+      <button
+        class="filter-btn px-5 py-2.5 rounded-full bg-black/5 text-sub-gray-2 hover:bg-black/10 transition-all focus:outline-none"
+        data-filter="robotics" data-cursor="hover">Robotics &amp; AI</button>
+      <button
+        class="filter-btn px-5 py-2.5 rounded-full bg-black/5 text-sub-gray-2 hover:bg-black/10 transition-all focus:outline-none"
+        data-filter="cloud" data-cursor="hover">Cloud Infrastructure</button>
+      <button
+        class="filter-btn px-5 py-2.5 rounded-full bg-black/5 text-sub-gray-2 hover:bg-black/10 transition-all focus:outline-none"
+        data-filter="biotech" data-cursor="hover">BioTech &amp; Health</button>
     </div>
 
     <!-- Work Catalog Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16" id="workGrid">
-      
+
       <!-- NovaPay -->
-      <article class="project-card group cursor-pointer reveal-fade-up delay-100" data-category="fintech" data-open-project="novapay" data-cursor="project" data-cursor-text="VIEW CASE">
+      <article class="project-card group cursor-pointer reveal-fade-up delay-100" data-category="fintech"
+        data-open-project="novapay" data-cursor="project" data-cursor-text="VIEW CASE">
         <div class="image-wrapper bg-gray-950 aspect-[16/11] mb-6 relative overflow-hidden rounded-md">
-          <img src="assets/images/project-novapay.svg" alt="NovaPay Fintech Platform" class="w-full h-full object-cover transform duration-700 group-hover:scale-105" loading="lazy">
+          <img src="assets/images/project-novapay.svg" alt="NovaPay Fintech Platform"
+            class="w-full h-full object-cover transform duration-700 group-hover:scale-105" loading="lazy">
           <div class="absolute top-4 left-4 flex flex-wrap gap-2">
-            <span class="px-3 py-1 bg-black/70 backdrop-blur-md rounded-full text-[11px] font-semibold tracking-wider uppercase text-white">Fintech</span>
-            <span class="px-3 py-1 bg-black/70 backdrop-blur-md rounded-full text-[11px] font-semibold tracking-wider uppercase text-agency-red">Awwwards SOTD</span>
+            <span
+              class="px-3 py-1 bg-black/70 backdrop-blur-md rounded-full text-[11px] font-semibold tracking-wider uppercase text-white">Fintech</span>
+            <span
+              class="px-3 py-1 bg-black/70 backdrop-blur-md rounded-full text-[11px] font-semibold tracking-wider uppercase text-agency-red">Awwwards
+              SOTD</span>
           </div>
         </div>
         <div class="flex items-baseline justify-between">
           <div>
-            <h2 class="font-montserrat font-bold text-2xl md:text-3xl text-agency-black-2 group-hover:text-agency-red transition-colors">NovaPay</h2>
+            <h2
+              class="font-montserrat font-bold text-2xl md:text-3xl text-agency-black-2 group-hover:text-agency-red transition-colors">
+              NovaPay</h2>
             <p class="text-sub-gray-2 text-sm mt-1">Corporate Website &amp; Treasury Web App</p>
           </div>
           <span class="text-xs font-mono font-bold text-sub-gray-3">2026</span>
@@ -125,17 +159,25 @@
       </article>
 
       <!-- Aether Systems -->
-      <article class="project-card group cursor-pointer reveal-fade-up delay-200" data-category="robotics" data-open-project="aether-systems" data-cursor="project" data-cursor-text="VIEW CASE">
+      <article class="project-card group cursor-pointer reveal-fade-up delay-200" data-category="robotics"
+        data-open-project="aether-systems" data-cursor="project" data-cursor-text="VIEW CASE">
         <div class="image-wrapper bg-gray-950 aspect-[16/11] mb-6 relative overflow-hidden rounded-md">
-          <img src="assets/images/project-aether.svg" alt="Aether Systems Robotics" class="w-full h-full object-cover transform duration-700 group-hover:scale-105" loading="lazy">
+          <img src="assets/images/project-aether.svg" alt="Aether Systems Robotics"
+            class="w-full h-full object-cover transform duration-700 group-hover:scale-105" loading="lazy">
           <div class="absolute top-4 left-4 flex flex-wrap gap-2">
-            <span class="px-3 py-1 bg-black/70 backdrop-blur-md rounded-full text-[11px] font-semibold tracking-wider uppercase text-white">Robotics &amp; AI</span>
-            <span class="px-3 py-1 bg-black/70 backdrop-blur-md rounded-full text-[11px] font-semibold tracking-wider uppercase text-agency-red">FWA Winner</span>
+            <span
+              class="px-3 py-1 bg-black/70 backdrop-blur-md rounded-full text-[11px] font-semibold tracking-wider uppercase text-white">Robotics
+              &amp; AI</span>
+            <span
+              class="px-3 py-1 bg-black/70 backdrop-blur-md rounded-full text-[11px] font-semibold tracking-wider uppercase text-agency-red">FWA
+              Winner</span>
           </div>
         </div>
         <div class="flex items-baseline justify-between">
           <div>
-            <h2 class="font-montserrat font-bold text-2xl md:text-3xl text-agency-black-2 group-hover:text-agency-red transition-colors">Aether Systems</h2>
+            <h2
+              class="font-montserrat font-bold text-2xl md:text-3xl text-agency-black-2 group-hover:text-agency-red transition-colors">
+              Aether Systems</h2>
             <p class="text-sub-gray-2 text-sm mt-1">3D WebGL Platform &amp; Brand System</p>
           </div>
           <span class="text-xs font-mono font-bold text-sub-gray-3">2025</span>
@@ -143,17 +185,25 @@
       </article>
 
       <!-- OmniCloud -->
-      <article class="project-card group cursor-pointer reveal-fade-up delay-100" data-category="cloud" data-open-project="omnicloud" data-cursor="project" data-cursor-text="VIEW CASE">
+      <article class="project-card group cursor-pointer reveal-fade-up delay-100" data-category="cloud"
+        data-open-project="omnicloud" data-cursor="project" data-cursor-text="VIEW CASE">
         <div class="image-wrapper bg-gray-950 aspect-[16/11] mb-6 relative overflow-hidden rounded-md">
-          <img src="assets/images/project-omnicloud.svg" alt="OmniCloud Platform" class="w-full h-full object-cover transform duration-700 group-hover:scale-105" loading="lazy">
+          <img src="assets/images/project-omnicloud.svg" alt="OmniCloud Platform"
+            class="w-full h-full object-cover transform duration-700 group-hover:scale-105" loading="lazy">
           <div class="absolute top-4 left-4 flex flex-wrap gap-2">
-            <span class="px-3 py-1 bg-black/70 backdrop-blur-md rounded-full text-[11px] font-semibold tracking-wider uppercase text-white">Cloud Infra</span>
-            <span class="px-3 py-1 bg-black/70 backdrop-blur-md rounded-full text-[11px] font-semibold tracking-wider uppercase text-agency-red">Webby Honoree</span>
+            <span
+              class="px-3 py-1 bg-black/70 backdrop-blur-md rounded-full text-[11px] font-semibold tracking-wider uppercase text-white">Cloud
+              Infra</span>
+            <span
+              class="px-3 py-1 bg-black/70 backdrop-blur-md rounded-full text-[11px] font-semibold tracking-wider uppercase text-agency-red">Webby
+              Honoree</span>
           </div>
         </div>
         <div class="flex items-baseline justify-between">
           <div>
-            <h2 class="font-montserrat font-bold text-2xl md:text-3xl text-agency-black-2 group-hover:text-agency-red transition-colors">OmniCloud</h2>
+            <h2
+              class="font-montserrat font-bold text-2xl md:text-3xl text-agency-black-2 group-hover:text-agency-red transition-colors">
+              OmniCloud</h2>
             <p class="text-sub-gray-2 text-sm mt-1">Enterprise Developer Portal &amp; Brand</p>
           </div>
           <span class="text-xs font-mono font-bold text-sub-gray-3">2025</span>
@@ -161,17 +211,24 @@
       </article>
 
       <!-- Zenith Health -->
-      <article class="project-card group cursor-pointer reveal-fade-up delay-200" data-category="biotech" data-open-project="zenith-health" data-cursor="project" data-cursor-text="VIEW CASE">
+      <article class="project-card group cursor-pointer reveal-fade-up delay-200" data-category="biotech"
+        data-open-project="zenith-health" data-cursor="project" data-cursor-text="VIEW CASE">
         <div class="image-wrapper bg-gray-950 aspect-[16/11] mb-6 relative overflow-hidden rounded-md">
-          <img src="assets/images/project-zenith.svg" alt="Zenith Health Platform" class="w-full h-full object-cover transform duration-700 group-hover:scale-105" loading="lazy">
+          <img src="assets/images/project-zenith.svg" alt="Zenith Health Platform"
+            class="w-full h-full object-cover transform duration-700 group-hover:scale-105" loading="lazy">
           <div class="absolute top-4 left-4 flex flex-wrap gap-2">
-            <span class="px-3 py-1 bg-black/70 backdrop-blur-md rounded-full text-[11px] font-semibold tracking-wider uppercase text-white">BioTech</span>
-            <span class="px-3 py-1 bg-black/70 backdrop-blur-md rounded-full text-[11px] font-semibold tracking-wider uppercase text-agency-red">HIPAA Certified</span>
+            <span
+              class="px-3 py-1 bg-black/70 backdrop-blur-md rounded-full text-[11px] font-semibold tracking-wider uppercase text-white">BioTech</span>
+            <span
+              class="px-3 py-1 bg-black/70 backdrop-blur-md rounded-full text-[11px] font-semibold tracking-wider uppercase text-agency-red">HIPAA
+              Certified</span>
           </div>
         </div>
         <div class="flex items-baseline justify-between">
           <div>
-            <h2 class="font-montserrat font-bold text-2xl md:text-3xl text-agency-black-2 group-hover:text-agency-red transition-colors">Zenith Health</h2>
+            <h2
+              class="font-montserrat font-bold text-2xl md:text-3xl text-agency-black-2 group-hover:text-agency-red transition-colors">
+              Zenith Health</h2>
             <p class="text-sub-gray-2 text-sm mt-1">Genomics Platform &amp; Clinical UX</p>
           </div>
           <span class="text-xs font-mono font-bold text-sub-gray-3">2024</span>
@@ -181,7 +238,8 @@
     </div>
 
     <!-- CTA Box -->
-    <div class="mt-28 p-12 rounded-2xl bg-agency-black-1 text-white flex flex-col md:flex-row items-center justify-between gap-8 reveal-fade-up">
+    <div
+      class="mt-28 p-12 rounded-2xl bg-agency-black-1 text-white flex flex-col md:flex-row items-center justify-between gap-8 reveal-fade-up">
       <div>
         <span class="type-comp2 text-agency-red block mb-2">HAVE A VISION?</span>
         <h3 class="font-montserrat font-bold text-2xl sm:text-3xl">Let's discuss your next breakthrough platform.</h3>
@@ -194,14 +252,22 @@
   </main>
 
   <!-- Project Modal -->
-  <div id="projectModal" class="fixed inset-0 z-[110] hidden items-center justify-center p-4 sm:p-6 overflow-y-auto" role="dialog" aria-modal="true">
-    <div class="modal-backdrop fixed inset-0 bg-black/80 backdrop-blur-md opacity-0 transition-opacity duration-300"></div>
-    <div class="modal-panel relative bg-agency-black-1 border border-white/10 rounded-2xl max-w-4xl w-full p-6 sm:p-10 text-white z-10 shadow-2xl opacity-0 translate-y-10 transition-all duration-400 max-h-[90vh] overflow-y-auto">
-      <button class="close-modal-btn absolute top-6 right-6 w-10 h-10 rounded-full bg-white/10 hover:bg-agency-red text-white flex items-center justify-center transition-colors focus:outline-none" aria-label="Close" data-cursor="hover">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+  <div id="projectModal" class="fixed inset-0 z-[110] hidden items-center justify-center p-4 sm:p-6 overflow-y-auto"
+    role="dialog" aria-modal="true">
+    <div class="modal-backdrop fixed inset-0 bg-black/80 backdrop-blur-md opacity-0 transition-opacity duration-300">
+    </div>
+    <div
+      class="modal-panel relative bg-agency-black-1 border border-white/10 rounded-2xl max-w-4xl w-full p-6 sm:p-10 text-white z-10 shadow-2xl opacity-0 translate-y-10 transition-all duration-400 max-h-[90vh] overflow-y-auto">
+      <button
+        class="close-modal-btn absolute top-6 right-6 w-10 h-10 rounded-full bg-white/10 hover:bg-agency-red text-white flex items-center justify-center transition-colors focus:outline-none"
+        aria-label="Close" data-cursor="hover">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
       </button>
       <div class="mb-6">
-        <span id="modalClient" class="text-xs font-mono font-bold tracking-widest text-agency-red uppercase block mb-1">Client</span>
+        <span id="modalClient"
+          class="text-xs font-mono font-bold tracking-widest text-agency-red uppercase block mb-1">Client</span>
         <h2 id="modalTitle" class="font-montserrat font-black text-3xl sm:text-4xl text-white">Title</h2>
         <p id="modalCategory" class="text-sub-gray-3 text-sm mt-1">Category</p>
       </div>
@@ -209,17 +275,28 @@
         <img id="modalImage" src="" alt="" class="w-full h-full object-cover">
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 text-sm">
-        <div><h4 class="font-montserrat font-bold text-xs uppercase tracking-widest text-agency-red mb-2">Challenge</h4><p id="modalChallenge" class="text-sub-gray-4 leading-relaxed"></p></div>
-        <div><h4 class="font-montserrat font-bold text-xs uppercase tracking-widest text-agency-red mb-2">Solution</h4><p id="modalSolution" class="text-sub-gray-4 leading-relaxed"></p></div>
+        <div>
+          <h4 class="font-montserrat font-bold text-xs uppercase tracking-widest text-agency-red mb-2">Challenge</h4>
+          <p id="modalChallenge" class="text-sub-gray-4 leading-relaxed"></p>
+        </div>
+        <div>
+          <h4 class="font-montserrat font-bold text-xs uppercase tracking-widest text-agency-red mb-2">Solution</h4>
+          <p id="modalSolution" class="text-sub-gray-4 leading-relaxed"></p>
+        </div>
       </div>
-      <div class="p-4 rounded-xl bg-white/5 border border-white/10 mb-6 flex flex-col sm:flex-row items-baseline justify-between gap-4">
-        <div><span class="text-xs uppercase tracking-wider font-semibold text-sub-gray-3 block">Impact</span><p id="modalImpact" class="font-montserrat font-bold text-base text-white mt-1"></p></div>
+      <div
+        class="p-4 rounded-xl bg-white/5 border border-white/10 mb-6 flex flex-col sm:flex-row items-baseline justify-between gap-4">
+        <div><span class="text-xs uppercase tracking-wider font-semibold text-sub-gray-3 block">Impact</span>
+          <p id="modalImpact" class="font-montserrat font-bold text-base text-white mt-1"></p>
+        </div>
         <div id="modalTags" class="flex flex-wrap gap-2"></div>
       </div>
     </div>
   </div>
 
-  <footer class="py-12 px-6 md:px-12 bg-agency-black-2 text-white border-t border-white/10 text-xs text-sub-gray-3 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center gap-4" data-theme="dark">
+  <footer
+    class="py-12 px-6 md:px-12 bg-agency-black-2 text-white border-t border-white/10 text-xs text-sub-gray-3 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center gap-4"
+    data-theme="dark">
     <span>&copy; <span data-current-year>2026</span> LLCG Team Studio. All Rights Reserved.</span>
     <div class="flex gap-6 uppercase font-semibold">
       <a href="./" class="hover:text-agency-red">Home</a>
@@ -235,4 +312,5 @@
   <script src="js/main.js"></script>
   <script src="js/router.js"></script>
 </body>
+
 </html>

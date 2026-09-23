@@ -98,12 +98,80 @@
   }
 
   /* ============================================================
+     1B. DYNAMIC NAVIGATION RENDERING FROM DATA.JS
+  ============================================================ */
+  function renderNavigation() {
+    if (typeof LLCG_DATA === 'undefined') return;
+
+    const currentPath = window.location.pathname;
+    const cleanCurrent = currentPath.replace(/\.html$/, '').replace(/\/+$/, '') || '/';
+    const basePath = (window.LLCGRouter && window.LLCGRouter.getBasePath()) || '';
+
+    // 1. Render Fullscreen Radial Cover Menu Navigation
+    const $coverNavUl = $('#coverMenu ul');
+    if ($coverNavUl.length && Array.isArray(LLCG_DATA.navigation)) {
+      let navHtml = '';
+      LLCG_DATA.navigation.forEach(item => {
+        let itemRoute = item.href.replace(/\.html$/, '');
+        let isCurrent = false;
+
+        if (itemRoute === './' || itemRoute === '/' || itemRoute === '') {
+          isCurrent = (cleanCurrent === '/' || cleanCurrent === basePath || cleanCurrent === basePath + '/');
+        } else {
+          isCurrent = cleanCurrent.endsWith('/' + itemRoute) || cleanCurrent.endsWith(itemRoute);
+        }
+
+        const activeClass = isCurrent ? ' is-active' : '';
+
+        navHtml += `
+          <li class="menu-nav-item">
+            <a href="${item.href}" class="menu-nav-link${activeClass}" data-cursor="hover">
+              <span class="numbering font-mono">${item.number}</span>
+              <span class="menu-word">${item.label}</span>
+            </a>
+          </li>
+        `;
+      });
+      $coverNavUl.html(navHtml);
+    }
+
+    // 2. Render Footer Navigation Links
+    const $footerNav = $('footer .uppercase, #footerNavLinks');
+    if ($footerNav.length) {
+      const links = LLCG_DATA.footerLinks || LLCG_DATA.navigation.map(n => ({
+        label: n.label.charAt(0) + n.label.slice(1).toLowerCase(),
+        href: n.href
+      }));
+
+      let footerHtml = '';
+      links.forEach(item => {
+        footerHtml += `<a href="${item.href}" class="hover:text-agency-red transition-colors" data-cursor="hover">${item.label}</a>`;
+      });
+      $footerNav.html(footerHtml);
+    }
+
+    // 3. Render Dynamic Studio Contact Details in Cover Menu & Footer (from LLCG_DATA.agency)
+    if (LLCG_DATA.agency) {
+      const agency = LLCG_DATA.agency;
+      const $coverEmail = $('#coverMenu a[href^="mailto:"]');
+      if ($coverEmail.length && agency.email) {
+        $coverEmail.attr('href', `mailto:${agency.email}`).text(agency.email);
+      }
+      const $coverAddress = $('#coverMenu p.text-sub-gray-4');
+      if ($coverAddress.length && agency.address) {
+        $coverAddress.html(agency.address.replace(', ', '<br>'));
+      }
+    }
+  }
+
+  window.renderNavigation = renderNavigation;
+
+  /* ============================================================
      2. FULLSCREEN RADIAL COVER MENU
   ============================================================ */
   function initCoverMenu() {
     const $menu = $('#coverMenu');
     const $hamburger = $('#hamburgerBtn');
-    const $menuLinks = $('.menu-nav-link');
 
     function toggleMenu(open) {
       state.isMenuOpen = typeof open === 'boolean' ? open : !state.isMenuOpen;
@@ -130,7 +198,7 @@
       toggleMenu();
     });
 
-    $menuLinks.on('click', function () {
+    $(document).on('click', '.menu-nav-link', function () {
       toggleMenu(false);
     });
 
@@ -723,6 +791,7 @@
      PAGE LIFECYCLE RE-INITIALIZATION (FOR SPA ROUTING)
   ============================================================ */
   function initPageFeatures() {
+    renderNavigation();
     initHeroParallax();
     initRollingButtons();
     initScrollObserver();
