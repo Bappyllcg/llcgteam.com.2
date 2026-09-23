@@ -4,9 +4,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Selected Work — LLCG Team Studio</title>
+  <title>Selected Work — Websites, ERP &amp; Web Software | LLCG Team</title>
   <meta name="description"
-    content="Explore our portfolio of enterprise web applications, 3D WebGL platforms, and conversion-engineered digital products.">
+    content="Explore LLCG Team's portfolio of mission-critical enterprise ERP systems, custom web-based software platforms, and high-performance websites.">
+  <link rel="canonical" href="https://llcgteam.com/work">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://llcgteam.com/work">
+  <meta property="og:title" content="Selected Work — Websites, ERP &amp; Web Software | LLCG Team">
+  <meta property="og:description"
+    content="Proven enterprise ERP systems, custom web applications, and digital flagships engineered by LLCG Team.">
+  <meta property="og:image" content="assets/svg/logo.svg">
+
   <link rel="icon" type="image/svg+xml" href="assets/svg/logo.svg">
   <link rel="stylesheet" href="dist/output.css">
 </head>
@@ -75,25 +84,28 @@
         <ul class="flex flex-col space-y-4">
           <li class="menu-nav-item"><a href="./" class="menu-nav-link" data-cursor="hover"><span
                 class="numbering font-mono">01</span><span class="menu-word">HOME</span></a></li>
-          <li class="menu-nav-item"><a href="work" class="menu-nav-link" data-cursor="hover"><span
+          <li class="menu-nav-item"><a href="work" class="menu-nav-link is-active" data-cursor="hover"><span
                 class="numbering font-mono">02</span><span class="menu-word">WORK</span></a></li>
           <li class="menu-nav-item"><a href="services" class="menu-nav-link" data-cursor="hover"><span
                 class="numbering font-mono">03</span><span class="menu-word">SERVICES</span></a></li>
           <li class="menu-nav-item"><a href="about" class="menu-nav-link" data-cursor="hover"><span
                 class="numbering font-mono">04</span><span class="menu-word">ABOUT</span></a></li>
-          <li class="menu-nav-item"><a href="lets-talk" class="menu-nav-link is-active" data-cursor="hover"><span
+          <li class="menu-nav-item"><a href="lets-talk" class="menu-nav-link" data-cursor="hover"><span
                 class="numbering font-mono">05</span><span class="menu-word">CONTACT</span></a></li>
         </ul>
       </div>
       <div class="flex flex-col text-white/80 space-y-6 max-w-sm">
         <div>
           <span class="text-xs font-bold tracking-[0.25em] uppercase text-agency-red block mb-2">Direct Contact</span>
-          <a href="mailto:hello@llcgteam.com"
+          <a href="mailto:mail.llcgteam@gmail.com"
             class="text-xl font-medium text-white hover:text-agency-red transition-colors"
-            data-cursor="hover">hello@llcgteam.com</a>
+            data-cursor="hover">mail.llcgteam@gmail.com</a>
+          <a href="https://wa.me/8801303755748?text=Hello%20LLCG%20Team%2C%20I%20would%20like%20to%20discuss%20a%20project."
+            target="_blank" rel="noopener noreferrer"
+            class="text-sm text-emerald-400 hover:text-white transition-colors block mt-1">+880 1303-755748 (WhatsApp)</a>
         </div>
         <p class="text-sm text-sub-gray-4 leading-relaxed">
-          300 Santana Row, Suite 400<br>San Jose, CA 95128
+          Fulbari, Dinajpur, BD<br>Bangladesh &bull; Worldwide Delivery
         </p>
       </div>
     </div>
@@ -103,10 +115,9 @@
     <!-- Page Header -->
     <div class="mb-16 reveal-fade-up">
       <span class="type-comp2 text-agency-red block mb-2">PORTFOLIO</span>
-      <h1 class="type-h2 text-agency-black-2 mb-6">Selected Work</h1>
+      <h1 class="type-h2 text-agency-black-2 mb-6">Selected Work<span class="text-agency-red">.</span></h1>
       <p class="text-sub-gray-1 max-w-2xl text-lg leading-relaxed">
-        A curated showcase of high-impact websites, web applications, and brand identities engineered for market
-        dominance.
+        A curated showcase of enterprise-level ERP systems, custom web-based software, and high-performance websites engineered for business scale.
       </p>
     </div>
 
@@ -118,118 +129,157 @@
         data-filter="all" data-cursor="hover">All Work</button>
       <button
         class="filter-btn px-5 py-2.5 rounded-full bg-black/5 text-sub-gray-2 hover:bg-black/10 transition-all focus:outline-none"
-        data-filter="fintech" data-cursor="hover">Fintech</button>
+        data-filter="erp" data-cursor="hover">Enterprise ERP</button>
       <button
         class="filter-btn px-5 py-2.5 rounded-full bg-black/5 text-sub-gray-2 hover:bg-black/10 transition-all focus:outline-none"
-        data-filter="robotics" data-cursor="hover">Robotics &amp; AI</button>
+        data-filter="software" data-cursor="hover">Web-Based Software</button>
       <button
         class="filter-btn px-5 py-2.5 rounded-full bg-black/5 text-sub-gray-2 hover:bg-black/10 transition-all focus:outline-none"
-        data-filter="cloud" data-cursor="hover">Cloud Infrastructure</button>
-      <button
-        class="filter-btn px-5 py-2.5 rounded-full bg-black/5 text-sub-gray-2 hover:bg-black/10 transition-all focus:outline-none"
-        data-filter="biotech" data-cursor="hover">BioTech &amp; Health</button>
+        data-filter="website" data-cursor="hover">Websites</button>
     </div>
 
     <!-- Work Catalog Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16" id="workGrid">
 
-      <!-- NovaPay -->
-      <article class="project-card group cursor-pointer reveal-fade-up delay-100" data-category="fintech"
-        data-open-project="novapay" data-cursor="project" data-cursor-text="VIEW CASE">
+      <!-- 1. OmniERP Suite -->
+      <article class="project-card group cursor-pointer reveal-fade-up delay-100" data-category="erp"
+        data-open-project="omnierp" data-cursor="project" data-cursor-text="VIEW CASE">
         <div class="image-wrapper bg-gray-950 aspect-[16/11] mb-6 relative overflow-hidden rounded-md">
-          <img src="assets/images/project-novapay.svg" alt="NovaPay Fintech Platform"
+          <img src="assets/images/project-omnicloud.svg" alt="OmniERP Suite"
             class="w-full h-full object-cover transform duration-700 group-hover:scale-105" loading="lazy">
           <div class="absolute top-4 left-4 flex flex-wrap gap-2">
             <span
-              class="px-3 py-1 bg-black/70 backdrop-blur-md rounded-full text-[11px] font-semibold tracking-wider uppercase text-white">Fintech</span>
+              class="px-3 py-1 bg-black/70 backdrop-blur-md rounded-full text-[11px] font-semibold tracking-wider uppercase text-white">Enterprise ERP</span>
             <span
-              class="px-3 py-1 bg-black/70 backdrop-blur-md rounded-full text-[11px] font-semibold tracking-wider uppercase text-agency-red">Awwwards
-              SOTD</span>
+              class="px-3 py-1 bg-black/70 backdrop-blur-md rounded-full text-[11px] font-semibold tracking-wider uppercase text-emerald-400">Multi-Plant Sync</span>
           </div>
         </div>
         <div class="flex items-baseline justify-between">
           <div>
             <h2
               class="font-montserrat font-bold text-2xl md:text-3xl text-agency-black-2 group-hover:text-agency-red transition-colors">
-              NovaPay</h2>
-            <p class="text-sub-gray-2 text-sm mt-1">Corporate Website &amp; Treasury Web App</p>
+              OmniERP Suite</h2>
+            <p class="text-sub-gray-2 text-sm mt-1">Multi-Plant Manufacturing &amp; Supply Chain ERP</p>
           </div>
           <span class="text-xs font-mono font-bold text-sub-gray-3">2026</span>
         </div>
       </article>
 
-      <!-- Aether Systems -->
-      <article class="project-card group cursor-pointer reveal-fade-up delay-200" data-category="robotics"
-        data-open-project="aether-systems" data-cursor="project" data-cursor-text="VIEW CASE">
+      <!-- 2. NovaPay Treasury -->
+      <article class="project-card group cursor-pointer reveal-fade-up delay-200" data-category="software"
+        data-open-project="novapay" data-cursor="project" data-cursor-text="VIEW CASE">
         <div class="image-wrapper bg-gray-950 aspect-[16/11] mb-6 relative overflow-hidden rounded-md">
-          <img src="assets/images/project-aether.svg" alt="Aether Systems Robotics"
+          <img src="assets/images/project-novapay.svg" alt="NovaPay Treasury Platform"
             class="w-full h-full object-cover transform duration-700 group-hover:scale-105" loading="lazy">
           <div class="absolute top-4 left-4 flex flex-wrap gap-2">
             <span
-              class="px-3 py-1 bg-black/70 backdrop-blur-md rounded-full text-[11px] font-semibold tracking-wider uppercase text-white">Robotics
-              &amp; AI</span>
+              class="px-3 py-1 bg-black/70 backdrop-blur-md rounded-full text-[11px] font-semibold tracking-wider uppercase text-white">Web Software</span>
             <span
-              class="px-3 py-1 bg-black/70 backdrop-blur-md rounded-full text-[11px] font-semibold tracking-wider uppercase text-agency-red">FWA
-              Winner</span>
+              class="px-3 py-1 bg-black/70 backdrop-blur-md rounded-full text-[11px] font-semibold tracking-wider uppercase text-agency-red">Sub-Second Speed</span>
           </div>
         </div>
         <div class="flex items-baseline justify-between">
           <div>
             <h2
               class="font-montserrat font-bold text-2xl md:text-3xl text-agency-black-2 group-hover:text-agency-red transition-colors">
-              Aether Systems</h2>
-            <p class="text-sub-gray-2 text-sm mt-1">3D WebGL Platform &amp; Brand System</p>
+              NovaPay Treasury</h2>
+            <p class="text-sub-gray-2 text-sm mt-1">High-Velocity Multi-Currency Treasury Portal</p>
+          </div>
+          <span class="text-xs font-mono font-bold text-sub-gray-3">2026</span>
+        </div>
+      </article>
+
+      <!-- 3. ApexFlow ERP -->
+      <article class="project-card group cursor-pointer reveal-fade-up delay-100" data-category="erp"
+        data-open-project="apexflow" data-cursor="project" data-cursor-text="VIEW CASE">
+        <div class="image-wrapper bg-gray-950 aspect-[16/11] mb-6 relative overflow-hidden rounded-md">
+          <img src="assets/images/project-aether.svg" alt="ApexFlow ERP"
+            class="w-full h-full object-cover transform duration-700 group-hover:scale-105" loading="lazy">
+          <div class="absolute top-4 left-4 flex flex-wrap gap-2">
+            <span
+              class="px-3 py-1 bg-black/70 backdrop-blur-md rounded-full text-[11px] font-semibold tracking-wider uppercase text-white">Enterprise ERP</span>
+            <span
+              class="px-3 py-1 bg-black/70 backdrop-blur-md rounded-full text-[11px] font-semibold tracking-wider uppercase text-agency-red">ACID Compliant</span>
+          </div>
+        </div>
+        <div class="flex items-baseline justify-between">
+          <div>
+            <h2
+              class="font-montserrat font-bold text-2xl md:text-3xl text-agency-black-2 group-hover:text-agency-red transition-colors">
+              ApexFlow ERP</h2>
+            <p class="text-sub-gray-2 text-sm mt-1">Multi-Branch Accounting &amp; Biometric Payroll</p>
           </div>
           <span class="text-xs font-mono font-bold text-sub-gray-3">2025</span>
         </div>
       </article>
 
-      <!-- OmniCloud -->
-      <article class="project-card group cursor-pointer reveal-fade-up delay-100" data-category="cloud"
-        data-open-project="omnicloud" data-cursor="project" data-cursor-text="VIEW CASE">
+      <!-- 4. HealthPulse Portal -->
+      <article class="project-card group cursor-pointer reveal-fade-up delay-200" data-category="software"
+        data-open-project="healthpulse" data-cursor="project" data-cursor-text="VIEW CASE">
         <div class="image-wrapper bg-gray-950 aspect-[16/11] mb-6 relative overflow-hidden rounded-md">
-          <img src="assets/images/project-omnicloud.svg" alt="OmniCloud Platform"
+          <img src="assets/images/project-zenith.svg" alt="HealthPulse Portal"
             class="w-full h-full object-cover transform duration-700 group-hover:scale-105" loading="lazy">
           <div class="absolute top-4 left-4 flex flex-wrap gap-2">
             <span
-              class="px-3 py-1 bg-black/70 backdrop-blur-md rounded-full text-[11px] font-semibold tracking-wider uppercase text-white">Cloud
-              Infra</span>
+              class="px-3 py-1 bg-black/70 backdrop-blur-md rounded-full text-[11px] font-semibold tracking-wider uppercase text-white">Web Software</span>
             <span
-              class="px-3 py-1 bg-black/70 backdrop-blur-md rounded-full text-[11px] font-semibold tracking-wider uppercase text-agency-red">Webby
-              Honoree</span>
+              class="px-3 py-1 bg-black/70 backdrop-blur-md rounded-full text-[11px] font-semibold tracking-wider uppercase text-sky-400">HIPAA Compliant</span>
           </div>
         </div>
         <div class="flex items-baseline justify-between">
           <div>
             <h2
               class="font-montserrat font-bold text-2xl md:text-3xl text-agency-black-2 group-hover:text-agency-red transition-colors">
-              OmniCloud</h2>
-            <p class="text-sub-gray-2 text-sm mt-1">Enterprise Developer Portal &amp; Brand</p>
+              HealthPulse Portal</h2>
+            <p class="text-sub-gray-2 text-sm mt-1">Clinical Operations &amp; Diagnostic Records</p>
           </div>
           <span class="text-xs font-mono font-bold text-sub-gray-3">2025</span>
         </div>
       </article>
 
-      <!-- Zenith Health -->
-      <article class="project-card group cursor-pointer reveal-fade-up delay-200" data-category="biotech"
-        data-open-project="zenith-health" data-cursor="project" data-cursor-text="VIEW CASE">
+      <!-- 5. LogisticsPro Cloud -->
+      <article class="project-card group cursor-pointer reveal-fade-up delay-100" data-category="software"
+        data-open-project="logisticspro" data-cursor="project" data-cursor-text="VIEW CASE">
         <div class="image-wrapper bg-gray-950 aspect-[16/11] mb-6 relative overflow-hidden rounded-md">
-          <img src="assets/images/project-zenith.svg" alt="Zenith Health Platform"
+          <img src="assets/images/project-omnicloud.svg" alt="LogisticsPro Cloud"
             class="w-full h-full object-cover transform duration-700 group-hover:scale-105" loading="lazy">
           <div class="absolute top-4 left-4 flex flex-wrap gap-2">
             <span
-              class="px-3 py-1 bg-black/70 backdrop-blur-md rounded-full text-[11px] font-semibold tracking-wider uppercase text-white">BioTech</span>
+              class="px-3 py-1 bg-black/70 backdrop-blur-md rounded-full text-[11px] font-semibold tracking-wider uppercase text-white">Web Software</span>
             <span
-              class="px-3 py-1 bg-black/70 backdrop-blur-md rounded-full text-[11px] font-semibold tracking-wider uppercase text-agency-red">HIPAA
-              Certified</span>
+              class="px-3 py-1 bg-black/70 backdrop-blur-md rounded-full text-[11px] font-semibold tracking-wider uppercase text-amber-400">Live Telemetry</span>
           </div>
         </div>
         <div class="flex items-baseline justify-between">
           <div>
             <h2
               class="font-montserrat font-bold text-2xl md:text-3xl text-agency-black-2 group-hover:text-agency-red transition-colors">
-              Zenith Health</h2>
-            <p class="text-sub-gray-2 text-sm mt-1">Genomics Platform &amp; Clinical UX</p>
+              LogisticsPro Cloud</h2>
+            <p class="text-sub-gray-2 text-sm mt-1">Fleet Telemetry, Manifests &amp; Waybill Tracking</p>
+          </div>
+          <span class="text-xs font-mono font-bold text-sub-gray-3">2024</span>
+        </div>
+      </article>
+
+      <!-- 6. PrimeCommerce Flagship -->
+      <article class="project-card group cursor-pointer reveal-fade-up delay-200" data-category="website"
+        data-open-project="primecommerce" data-cursor="project" data-cursor-text="VIEW CASE">
+        <div class="image-wrapper bg-gray-950 aspect-[16/11] mb-6 relative overflow-hidden rounded-md">
+          <img src="assets/images/project-novapay.svg" alt="PrimeCommerce Flagship Website"
+            class="w-full h-full object-cover transform duration-700 group-hover:scale-105" loading="lazy">
+          <div class="absolute top-4 left-4 flex flex-wrap gap-2">
+            <span
+              class="px-3 py-1 bg-black/70 backdrop-blur-md rounded-full text-[11px] font-semibold tracking-wider uppercase text-white">Website</span>
+            <span
+              class="px-3 py-1 bg-black/70 backdrop-blur-md rounded-full text-[11px] font-semibold tracking-wider uppercase text-agency-red">99 Lighthouse</span>
+          </div>
+        </div>
+        <div class="flex items-baseline justify-between">
+          <div>
+            <h2
+              class="font-montserrat font-bold text-2xl md:text-3xl text-agency-black-2 group-hover:text-agency-red transition-colors">
+              PrimeCommerce Flagship</h2>
+            <p class="text-sub-gray-2 text-sm mt-1">Headless E-Commerce &amp; Bespoke UI Design</p>
           </div>
           <span class="text-xs font-mono font-bold text-sub-gray-3">2024</span>
         </div>
@@ -244,8 +294,13 @@
         <span class="type-comp2 text-agency-red block mb-2">HAVE A VISION?</span>
         <h3 class="font-montserrat font-bold text-2xl sm:text-3xl">Let's discuss your next breakthrough platform.</h3>
       </div>
-      <a href="lets-talk" class="btn-action-primary" data-cursor="hover">
-        <span>Schedule Scoping Call</span>
+      <a href="https://wa.me/8801303755748?text=Hello%20LLCG%20Team%2C%20I%20would%20like%20to%20discuss%20a%20project."
+        target="_blank" rel="noopener noreferrer" class="btn-whatsapp-primary" data-cursor="hover">
+        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+          <path
+            d="M12.031 2C6.5 2 2 6.5 2 12.031c0 1.906.531 3.688 1.453 5.219L2 22l4.906-1.422a9.98 9.98 0 005.125 1.453h.005C17.562 22.031 22.062 17.531 22.062 12c0-2.688-1.047-5.219-2.953-7.109A10.02 10.02 0 0012.031 2zm5.844 14.172c-.25.688-1.25 1.281-2.031 1.438-.531.109-1.234.188-3.563-.781-2.984-1.25-4.906-4.281-5.062-4.484-.141-.188-1.203-1.609-1.203-3.078 0-1.469.766-2.188 1.031-2.484.281-.297.609-.375.813-.375.203 0 .406.016.578.016.188 0 .438-.078.688.516.25.609.859 2.094.938 2.25.078.156.125.344.031.547-.094.188-.141.313-.281.484-.141.156-.313.359-.438.484-.141.141-.297.297-.125.594.172.297.766 1.266 1.641 2.047 1.125 1 2.078 1.313 2.375 1.453.297.141.469.125.641-.078.172-.203.734-.859.938-1.156.203-.297.406-.25.688-.141.281.094 1.797.844 2.109 1 .313.156.516.234.594.359.078.141.078.813-.172 1.501z" />
+        </svg>
+        <span>Chat on WhatsApp</span>
         <span class="btn-arrow">&rarr;</span>
       </a>
     </div>
@@ -286,7 +341,7 @@
       </div>
       <div
         class="p-4 rounded-xl bg-white/5 border border-white/10 mb-6 flex flex-col sm:flex-row items-baseline justify-between gap-4">
-        <div><span class="text-xs uppercase tracking-wider font-semibold text-sub-gray-3 block">Impact</span>
+        <div><span class="text-xs uppercase tracking-wider font-semibold text-sub-gray-3 block">Measurable Impact</span>
           <p id="modalImpact" class="font-montserrat font-bold text-base text-white mt-1"></p>
         </div>
         <div id="modalTags" class="flex flex-wrap gap-2"></div>
@@ -297,7 +352,7 @@
   <footer
     class="py-12 px-6 md:px-12 bg-agency-black-2 text-white border-t border-white/10 text-xs text-sub-gray-3 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center gap-4"
     data-theme="dark">
-    <span>&copy; <span data-current-year>2026</span> LLCG Team Studio. All Rights Reserved.</span>
+    <span>&copy; <span data-current-year>2026</span> LLCG Team Studio. All Rights Reserved. Fulbari, Dinajpur, BD.</span>
     <div class="flex gap-6 uppercase font-semibold">
       <a href="./" class="hover:text-agency-red">Home</a>
       <a href="services" class="hover:text-agency-red">Services</a>

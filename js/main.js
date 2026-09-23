@@ -643,7 +643,7 @@
 
     $(document).on('click', '[data-copy-email]', function (e) {
       e.preventDefault();
-      const email = $(this).attr('data-copy-email') || $(this).text().trim() || 'hello@llcgteam.com';
+      const email = $(this).attr('data-copy-email') || $(this).text().trim() || 'mail.llcgteam@gmail.com';
 
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(email).then(() => {
