@@ -656,6 +656,11 @@
       }, 20);
 
       $('body').addClass('overflow-hidden');
+
+      // Stop Lenis scroll when modal is open
+      if (window.lenisInstance) {
+        window.lenisInstance.stop();
+      }
     };
 
     window.closeModal = function () {
@@ -666,6 +671,11 @@
       setTimeout(() => {
         $modal.removeClass('flex').addClass('hidden');
         $('body').removeClass('overflow-hidden');
+
+        // Restart Lenis scroll when modal is closed
+        if (window.lenisInstance) {
+          window.lenisInstance.start();
+        }
       }, 350);
     };
 
@@ -677,6 +687,21 @@
       e.preventDefault();
       const pId = $(this).attr('data-open-project');
       openProjectModal(pId);
+    });
+
+    // Enable mouse wheel scroll on modal panel
+    $modal.on('wheel', '.modal-panel', function (e) {
+      e.stopPropagation();
+      // Allow native scrolling on the modal panel
+      const scrollTop = this.scrollTop;
+      const scrollHeight = this.scrollHeight;
+      const clientHeight = this.clientHeight;
+      const delta = e.originalEvent.deltaY;
+
+      // Prevent scrolling if at top and trying to scroll up, or at bottom and trying to scroll down
+      if ((scrollTop === 0 && delta < 0) || (scrollTop + clientHeight >= scrollHeight && delta > 0)) {
+        e.preventDefault();
+      }
     });
   }
 

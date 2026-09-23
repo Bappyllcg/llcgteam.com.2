@@ -1866,6 +1866,9 @@ video {
   --custom-ease-3: cubic-bezier(0.19, 1, 0.22, 1);
   --custom-ease-4: cubic-bezier(0.63, 0.03, 0.21, 1);
   --primary-ease: var(--custom-ease-1);
+  /* Dynamic scrollbar colors */
+  --scrollbar-thumb: rgba(255, 255, 255, 0.2);
+  --scrollbar-thumb-hover: rgba(255, 255, 255, 0.4);
 }
 
 html {
@@ -1886,6 +1889,36 @@ body {
   background-color: var(--color-primary-white);
   overflow-x: hidden;
   transition: background-color 0.85s var(--primary-ease), color 0.85s var(--primary-ease);
+}
+
+/* Custom Scrollbar Styling */
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary-red);
+  border-radius: 4px;
+  opacity: 0.6;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  opacity: 1;
+}
+
+/* Firefox scrollbar styling */
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary-black-1) transparent;
 }
 
 body.theme-dark {
@@ -2291,11 +2324,11 @@ body.theme-black {
 @media (min-width: 769px) {
   .button-cta:hover::after,
   .btn-roll:hover::after {
-    animation: LLCG Team-swipe-underline 0.65s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+    animation: llcg-swipe-underline 0.65s cubic-bezier(0.76, 0, 0.24, 1) forwards;
   }
 }
 
-@keyframes LLCG Team-swipe-underline {
+@keyframes llcg-swipe-underline {
   0% {
     transform: scaleX(1);
     transform-origin: right center;
