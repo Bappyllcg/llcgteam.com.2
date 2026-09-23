@@ -994,12 +994,6 @@ video {
   margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
-.space-y-2 > :not([hidden]) ~ :not([hidden]){
-  --tw-space-y-reverse: 0;
-  margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
-}
-
 .space-y-24 > :not([hidden]) ~ :not([hidden]){
   --tw-space-y-reverse: 0;
   margin-top: calc(6rem * calc(1 - var(--tw-space-y-reverse)));
@@ -1876,7 +1870,7 @@ body.theme-black {
   color: #fff;
 }
 
-/* Typography scale matching Baunfire specs */
+/* Typography scale matching LLCG Team specs */
 
 .type-h1 {
   font-family: 'Montserrat', sans-serif;
@@ -2039,7 +2033,7 @@ body.theme-black {
 }
 
 /* ============================================================
-   1. BAUNFIRE LOGO ANIMATION (.identity)
+   1. LLCG Team LOGO ANIMATION (.identity)
 ============================================================ */
 
 .logo-container {
@@ -2169,7 +2163,7 @@ body.theme-black {
 }
 
 /* ============================================================
-   2. BAUNFIRE "LET'S TALK" & ROLLING BUTTONS (.button-cta, .btn-roll)
+   2. LLCG Team "LET'S TALK" & ROLLING BUTTONS (.button-cta, .btn-roll)
 ============================================================ */
 
 .button-cta,
@@ -2242,7 +2236,7 @@ body.theme-black {
   transform: translateY(-100%);
 }
 
-/* Two-Phase Infinite Swipe Underline (Baunfire exact kinetics) */
+/* Two-Phase Infinite Swipe Underline (LLCG Team exact kinetics) */
 
 .button-cta::after,
 .btn-roll::after {
@@ -2259,11 +2253,11 @@ body.theme-black {
 @media (min-width: 769px) {
   .button-cta:hover::after,
   .btn-roll:hover::after {
-    animation: baunfire-swipe-underline 0.65s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+    animation: LLCG Team-swipe-underline 0.65s cubic-bezier(0.76, 0, 0.24, 1) forwards;
   }
 }
 
-@keyframes baunfire-swipe-underline {
+@keyframes LLCG Team-swipe-underline {
   0% {
     transform: scaleX(1);
     transform-origin: right center;
@@ -2286,7 +2280,7 @@ body.theme-black {
 }
 
 /* ============================================================
-   3. BAUNFIRE PILL BUTTON (.default-button & .hero-pill-button)
+   3. LLCG Team PILL BUTTON (.default-button & .hero-pill-button)
 ============================================================ */
 
 .default-button,
@@ -2544,7 +2538,7 @@ body.theme-black {
 }
 
 /* ============================================================
-   3B. BAUNFIRE PRIMARY ACTION BUTTONS (.btn-action-primary)
+   3B. LLCG Team PRIMARY ACTION BUTTONS (.btn-action-primary)
 ============================================================ */
 
 .btn-action-primary {
@@ -2605,7 +2599,7 @@ body.theme-black {
 }
 
 /* ============================================================
-   4. BAUNFIRE HERO SECTION (.section-hero)
+   4. LLCG Team HERO SECTION (.section-hero)
 ============================================================ */
 
 .section-hero {
@@ -2617,7 +2611,7 @@ body.theme-black {
   align-items: center;
   overflow: hidden;
   background-color: #171615;
-  /* Exact Baunfire dark luxury background */
+  /* Exact LLCG Team dark luxury background */
   color: #ffffff;
   z-index: 10;
 }
@@ -2997,7 +2991,7 @@ body.theme-black {
 }
 
 /* ============================================================
-   6. BAUNFIRE "WHAT WE DO" - PINNED STACK SCROLL INTERACTION
+   6. LLCG Team "WHAT WE DO" - PINNED STACK SCROLL INTERACTION
    (Refined: Real solid color background text, NO overlap, clean clip-path)
 ============================================================ */
 
@@ -3076,7 +3070,7 @@ body.theme-black {
   z-index: 10;
 }
 
-/* Background Title: Solid fill color matching Baunfire's --color-sub-white-2 */
+/* Background Title: Solid fill color matching LLCG Team's --color-sub-white-2 */
 
 .service-float .bg-text {
   position: absolute;
@@ -3283,7 +3277,7 @@ body.theme-black {
   }
 }
 
-/* Dynamic Header Themes (Baunfire Architecture) */
+/* Dynamic Header Themes (LLCG Team Architecture) */
 
 .header .identity,
 .header .identity .char,
@@ -4205,12 +4199,6 @@ html.lenis body {
 
   .sm\:flex-row{
     flex-direction: row;
-  }
-
-  .sm\:space-y-4 > :not([hidden]) ~ :not([hidden]){
-    --tw-space-y-reverse: 0;
-    margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
-    margin-bottom: calc(1rem * var(--tw-space-y-reverse));
   }
 
   .sm\:p-10{

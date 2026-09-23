@@ -1,6 +1,6 @@
 /**
  * LLCG Team - Agency Core Interactions & Animations
- * Exact mechanics mirroring baunfire.com
+ * Exact mechanics mirroring LLCG Team.com
  */
 
 (function ($) {
@@ -311,7 +311,7 @@
         $hamburger.addClass('background-is-white').removeClass('background-is-black');
       }
 
-      // Logo scroll morph (Baunfire exact behavior):
+      // Logo scroll morph (LLCG Team exact behavior):
       // When scrolled down past 80px, wordmark collapses to symbol; at top, full wordmark shows
       const $identity = $('.identity');
       if (window.scrollY > 80) {
@@ -377,7 +377,7 @@
   }
 
   /* ============================================================
-     5. BAUNFIRE "WHAT WE DO" - CONTINUOUS SYMMETRICAL SLIT CURTAIN WIPE
+     5. LLCG Team "WHAT WE DO" - CONTINUOUS SYMMETRICAL SLIT CURTAIN WIPE
   ============================================================ */
   function initStickyServiceStack() {
     const $track = $('#servicesTrack');
@@ -708,7 +708,7 @@
   }
 
   /* ============================================================
-     10. BAUNFIRE STAGGERED ROLLING BUTTONS & PILL BUTTONS
+     10. LLCG Team STAGGERED ROLLING BUTTONS & PILL BUTTONS
   ============================================================ */
   function initRollingButtons() {
     $('.button-cta, .btn-roll').each(function () {
@@ -773,7 +773,7 @@
      8F. WORK CATEGORY FILTER
   ============================================================ */
   function initWorkFilter() {
-    $('.filter-btn').off('click').on('click', function() {
+    $('.filter-btn').off('click').on('click', function () {
       const filter = $(this).attr('data-filter');
       $('.filter-btn').removeClass('bg-agency-black-1 text-white').addClass('bg-black/5 text-sub-gray-2');
       $(this).removeClass('bg-black/5 text-sub-gray-2').addClass('bg-agency-black-1 text-white');
