@@ -1263,6 +1263,14 @@ body.theme-black {
   letter-spacing: -0.02em;
 }
 
+/* Special styling for ERP - bigger and different */
+.service-card-stack[data-service="erp"] .bg-text .bg-part {
+  font-size: clamp(160px, 22vw, 320px);
+  color: #d4d4d4;
+  letter-spacing: -0.03em;
+  transform: scale(1.1);
+}
+
 /* Key Image Container: Shifted to Center-Left so rotated card NEVER overlaps text */
 .service-float .key-image-container {
   position: absolute;
