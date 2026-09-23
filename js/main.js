@@ -21,6 +21,7 @@
      0. LENIS SMOOTH MOMENTUM SCROLL (AGENCY-GRADE INERTIA)
   ============================================================ */
   let lenisInstance = null;
+
   function initLenis() {
     if (typeof Lenis !== 'undefined') {
       lenisInstance = new Lenis({
@@ -95,6 +96,71 @@
     }).on('mouseleave', '[data-cursor="project"], .thumbnail-container', function () {
       $cursor.removeClass('is-project');
     });
+  }
+
+  /* ============================================================
+     1B. MAGNETIC INTERACTION FOR ELEMENTS
+  ============================================================ */
+  function initMagneticElements() {
+    if (window.matchMedia('(pointer: coarse)').matches) {
+      return;
+    }
+
+    // Apply magnetic effect to hamburger button
+    const $hamburger = $('#hamburgerBtn');
+    if ($hamburger.length) {
+      const magneticStrength = 0.4;
+      const resetDuration = 0.3;
+
+      $hamburger.on('mousemove', function (e) {
+        const rect = this.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+
+        const deltaX = (e.clientX - centerX) * magneticStrength;
+        const deltaY = (e.clientY - centerY) * magneticStrength;
+
+        $(this).css({
+          transform: `translate(${deltaX}px, ${deltaY}px)`,
+          transition: 'transform 0.1s ease-out'
+        });
+      });
+
+      $hamburger.on('mouseleave', function () {
+        $(this).css({
+          transform: 'translate(0, 0)',
+          transition: `transform ${resetDuration}s cubic-bezier(0.25, 0.46, 0.45, 0.94)`
+        });
+      });
+    }
+
+    // Apply magnetic effect to logo
+    const $logo = $('.logo-container');
+    if ($logo.length) {
+      const magneticStrength = 0.3;
+      const resetDuration = 0.4;
+
+      $logo.on('mousemove', function (e) {
+        const rect = this.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+
+        const deltaX = (e.clientX - centerX) * magneticStrength;
+        const deltaY = (e.clientY - centerY) * magneticStrength;
+
+        $(this).css({
+          transform: `translate(${deltaX}px, ${deltaY}px)`,
+          transition: 'transform 0.1s ease-out'
+        });
+      });
+
+      $logo.on('mouseleave', function () {
+        $(this).css({
+          transform: 'translate(0, 0)',
+          transition: `transform ${resetDuration}s cubic-bezier(0.25, 0.46, 0.45, 0.94)`
+        });
+      });
+    }
   }
 
   /* ============================================================
@@ -260,8 +326,12 @@
         $cross2.css({
           transform: `translate3d(0, ${scrollY * -0.15}px, 0)`
         });
-        $ribbon.css({ opacity: Math.max(0, 1 - scrollY / 260) });
-        $scrollIndicator.css({ opacity: Math.max(0, 1 - scrollY / 200) });
+        $ribbon.css({
+          opacity: Math.max(0, 1 - scrollY / 260)
+        });
+        $scrollIndicator.css({
+          opacity: Math.max(0, 1 - scrollY / 200)
+        });
       }
     });
   }
@@ -371,7 +441,9 @@
       const workHeight = $work.outerHeight();
       if (scrollY + window.innerHeight > workTop && scrollY < workTop + workHeight) {
         const delta = (scrollY - workTop) * 0.07;
-        $col2.css({ transform: `translate3d(0, ${delta}px, 0)` });
+        $col2.css({
+          transform: `translate3d(0, ${delta}px, 0)`
+        });
       }
     });
   }
@@ -534,14 +606,20 @@
           obs.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.25 });
+    }, {
+      threshold: 0.25
+    });
 
     // Observe stats sections or counter containers
     const $statSections = $('#statsSection, .stats-container, .grid:has(.counter-val)');
     if ($statSections.length) {
-      $statSections.each(function () { observer.observe(this); });
+      $statSections.each(function () {
+        observer.observe(this);
+      });
     } else {
-      $counters.each(function () { observer.observe(this); });
+      $counters.each(function () {
+        observer.observe(this);
+      });
     }
   }
 
@@ -813,6 +891,7 @@
   $(document).ready(function () {
     initLenis();
     initCursor();
+    initMagneticElements();
     initCoverMenu();
     initHeaderThemeObserver();
     initProjectModal();
@@ -828,7 +907,10 @@
         e.preventDefault();
         if (window.closeCoverMenu) window.closeCoverMenu();
         if (lenisInstance) {
-          lenisInstance.scrollTo(target[0], { offset: -80, duration: 1.2 });
+          lenisInstance.scrollTo(target[0], {
+            offset: -80,
+            duration: 1.2
+          });
         } else {
           $('html, body').stop().animate({
             scrollTop: target.offset().top - 80
