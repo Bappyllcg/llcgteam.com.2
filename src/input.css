@@ -78,7 +78,60 @@ body {
 /* Firefox scrollbar styling */
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--color-primary-black-1) transparent;
+  scrollbar-color: var(--color-primary-red) transparent;
+}
+
+/* Blog Content Typography */
+.prose {
+  max-width: 65ch;
+}
+
+.prose h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 42px;
+  transform: scaleX(0.98);
+  transform-origin: left;
+  letter-spacing: -0.01em;
+  color: var(--color-primary-black-2);
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .prose h2 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+
+.prose p {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--color-sub-gray-2);
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .prose p {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+}
+
+.prose a {
+  color: var(--color-primary-red);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: all 0.3s ease;
+}
+
+.prose a:hover {
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
 }
 
 body.theme-dark {

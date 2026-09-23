@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Modern Web Playbook: High-Performance Architecture | LLCG Team</title>
+  <meta name="description"
+    content="Learn how our digital studio achieves sub-second page loads, 99+ Core Web Vitals, and kinetic motion without compromising on aesthetic luxury. Discover modern web performance optimization techniques.">
+  <meta name="keywords" content="web performance, Core Web Vitals, website speed, web architecture, performance optimization, modern web development">
+  <link rel="canonical" href="https://llcgteam.com/insights/modern-web-playbook">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://llcgteam.com/insights/modern-web-playbook">
+  <meta property="og:title" content="The Modern Web Playbook: High-Performance Architecture | LLCG Team">
+  <meta property="og:description"
+    content="How our digital studio achieves sub-second page loads, 99+ Core Web Vitals, and kinetic motion without compromising on aesthetic luxury.">
+  <meta property="og:image" content="assets/svg/logo.svg">
+  <meta property="article:published_time" content="2026-08-20">
+  <meta property="article:author" content="LLCG Team">
+  <meta property="article:section" content="Web Engineering">
+
+  <link rel="icon" type="image/svg+xml" href="../assets/svg/logo.svg">
+  <link rel="stylesheet" href="../dist/output.css">
+
+  <!-- Structured Data: Article -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "The Modern Web Playbook: High-Performance Architecture",
+      "description": "How our digital studio achieves sub-second page loads, 99+ Core Web Vitals, and kinetic motion without compromising on aesthetic luxury.",
+      "image": "https://llcgteam.com/assets/svg/logo.svg",
+      "author": {
+        "@type": "Organization",
+        "name": "LLCG Team"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "LLCG Team",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://llcgteam.com/assets/svg/logo.svg"
+        }
+      },
+      "datePublished": "2026-08-20",
+      "dateModified": "2026-08-20",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://llcgteam.com/insights/modern-web-playbook"
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-white text-agency-black-2 selection:bg-agency-red selection:text-white" data-theme="white">
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor" aria-hidden="true">
+    <div class="custom-cursor-dot"></div>
+    <div class="custom-cursor-ring"><span class="cursor-text">VIEW</span></div>
+  </div>
+
+  <!-- Header -->
+  <header id="mainHeader"
+    class="header py-8 flex items-center justify-between transition-all duration-500 theme-light background-is-white">
+    <!-- Animated Logo (.identity) -->
+    <a href="../" class="logo-container group" aria-label="LLCG Team Home" data-cursor="hover">
+      <div class="identity">
+        <div class="symbol-box shadow-md">
+          <svg class="symbol-svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4v16h10" />
+            <path d="M10 9v11h7" stroke="#f84525" />
+            <circle cx="17" cy="9" r="1.5" fill="#f84525" stroke="none" />
+          </svg>
+        </div>
+        <div class="letters-wrapper text-current">
+          <span class="char">L</span>
+          <span class="char">L</span>
+          <span class="char">C</span>
+          <span class="char">G</span>
+          <span class="char char-dot font-black">.</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Header Actions -->
+    <div class="flex items-center gap-8 z-50">
+      <a href="../lets-talk" id="headerCta" class="button-cta text-agency-black-2 hidden sm:inline-block background-is-white"
+        data-cursor="hover">
+        Let's Talk
+      </a>
+
+      <!-- Magnetic Hamburger -->
+      <button id="hamburgerBtn" class="hamburger focus:outline-none background-is-white"
+        aria-label="Toggle Navigation Menu" aria-expanded="false" data-cursor="hover">
+        <div class="bg-circle shadow-md"></div>
+        <div class="icon-lines">
+          <span class="line"></span>
+          <span class="line"></span>
+          <span class="line"></span>
+        </div>
+      </button>
+    </div>
+  </header>
+
+  <!-- Fullscreen Radial Cover Menu -->
+  <div id="coverMenu" class="cover-menu flex items-center justify-center">
+    <div
+      class="w-full max-w-desktop px-6 md:px-12 py-16 flex flex-col md:flex-row justify-between items-start md:items-end gap-12 relative z-20">
+      <div class="flex flex-col">
+        <span class="text-xs font-bold tracking-[0.3em] uppercase text-sub-gray-3 mb-6 block">Navigation</span>
+        <ul class="flex flex-col space-y-4">
+          <li class="menu-nav-item"><a href="../" class="menu-nav-link" data-cursor="hover"><span
+                class="numbering font-mono">01</span><span class="menu-word">HOME</span></a></li>
+          <li class="menu-nav-item"><a href="../work" class="menu-nav-link" data-cursor="hover"><span
+                class="numbering font-mono">02</span><span class="menu-word">WORK</span></a></li>
+          <li class="menu-nav-item"><a href="../services" class="menu-nav-link" data-cursor="hover"><span
+                class="numbering font-mono">03</span><span class="menu-word">SERVICES</span></a></li>
+          <li class="menu-nav-item"><a href="../about" class="menu-nav-link" data-cursor="hover"><span
+                class="numbering font-mono">04</span><span class="menu-word">ABOUT</span></a></li>
+          <li class="menu-nav-item"><a href="../lets-talk" class="menu-nav-link is-active" data-cursor="hover"><span
+                class="numbering font-mono">05</span><span class="menu-word">CONTACT</span></a></li>
+        </ul>
+      </div>
+
+      <div class="flex flex-col text-white/80 space-y-8 max-w-sm">
+        <div>
+          <span class="text-xs font-bold tracking-[0.25em] uppercase text-agency-red block mb-2">Direct Inquiries</span>
+          <a href="mailto:mail.llcgteam@gmail.com"
+            class="text-xl font-medium text-white hover:text-agency-red transition-colors duration-300 block"
+            data-cursor="hover">mail.llcgteam@gmail.com</a>
+          <a href="https://wa.me/8801303755748?text=Hello%20LLCG%20Team%2C%20I%20would%20like%20to%20discuss%20a%20project."
+            target="_blank" rel="noopener noreferrer"
+            class="text-sm text-emerald-400 hover:text-white transition-colors duration-300 block mt-1">+880 1303-755748
+            (WhatsApp)</a>
+        </div>
+        <div>
+          <span class="text-xs font-bold tracking-[0.25em] uppercase text-agency-red block mb-2">Studio
+            Headquarters</span>
+          <p class="text-sm leading-relaxed text-sub-gray-4">
+            Fulbari, Dinajpur, BD<br>
+            Bangladesh &bull; Worldwide Delivery
+          </p>
+        </div>
+        <div>
+          <span class="text-xs font-bold tracking-[0.25em] uppercase text-agency-red block mb-3">Connect</span>
+          <div class="flex items-center space-x-6 text-sm font-semibold tracking-wider">
+            <a href="https://wa.me/8801303755748" target="_blank" rel="noopener"
+              class="hover:text-agency-red transition-colors" data-cursor="hover">WHATSAPP</a>
+            <a href="mailto:mail.llcgteam@gmail.com" class="hover:text-agency-red transition-colors"
+              data-cursor="hover">EMAIL</a>
+            <a href="../lets-talk" class="hover:text-agency-red transition-colors" data-cursor="hover">CONTACT</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- Blog Article Header -->
+    <section class="py-16 md:py-24 px-6 md:px-12 max-w-4xl mx-auto" data-theme="white">
+      <div class="reveal-fade-up">
+        <a href="../" class="button-cta text-agency-black-2 inline-flex mb-12" data-cursor="hover">
+          <span class="btn-rolling-text">
+            <span class="word">
+              <span class="char" style="--i:0"><span class="char-inner" data-char="←">←</span></span>
+              <span class="char" style="--i:1"><span class="char-inner" data-char=" "> </span></span>
+              <span class="char" style="--i:2"><span class="char-inner" data-char="B">B</span></span>
+              <span class="char" style="--i:3"><span class="char-inner" data-char="a">a</span></span>
+              <span class="char" style="--i:4"><span class="char-inner" data-char="c">c</span></span>
+              <span class="char" style="--i:5"><span class="char-inner" data-char="k">k</span></span>
+              <span class="space">&nbsp;</span>
+              <span class="char" style="--i:6"><span class="char-inner" data-char="t">t</span></span>
+              <span class="char" style="--i:7"><span class="char-inner" data-char="o">o</span></span>
+              <span class="char" style="--i:8"><span class="char-inner" data-char=" "> </span></span>
+              <span class="char" style="--i:9"><span class="char-inner" data-char="H">H</span></span>
+              <span class="char" style="--i:10"><span class="char-inner" data-char="o">o</span></span>
+              <span class="char" style="--i:11"><span class="char-inner" data-char="m">m</span></span>
+              <span class="char" style="--i:12"><span class="char-inner" data-char="e">e</span></span>
+            </span>
+          </span>
+        </a>
+
+        <div class="flex items-center gap-4 mb-8">
+          <span class="px-3 py-1 bg-agency-red/10 text-agency-red text-xs font-bold tracking-wider uppercase rounded-full">
+            Web Engineering
+          </span>
+          <span class="text-xs text-sub-gray-3 font-mono">6 min read</span>
+          <span class="text-xs text-sub-gray-3 font-mono">August 2026</span>
+        </div>
+
+        <h1 class="type-h1 text-agency-black-2 mb-8">
+          The Modern Web Playbook: High-Performance Architecture
+        </h1>
+
+        <p class="type-sub1 text-sub-gray-2 text-lg leading-relaxed mb-12">
+          How our digital studio achieves sub-second page loads, 99+ Core Web Vitals, and kinetic motion without
+          compromising on aesthetic luxury. Discover the technical foundations of performance excellence.
+        </p>
+      </div>
+    </section>
+
+    <!-- Blog Content -->
+    <article class="px-6 md:px-12 max-w-4xl mx-auto pb-20">
+      <div class="prose prose-lg max-w-none">
+        
+        <div class="reveal-fade-up">
+          <h2 class="type-h2 text-agency-black-2 mb-6">The Performance Imperative in Modern Web Development</h2>
+          <p class="text-sub-gray-2 leading-relaxed mb-6">
+            In today's digital landscape, website performance has evolved from a technical consideration to a critical business imperative. Users expect instantaneous experiences, and search engines reward fast-loading sites with higher rankings. Yet many organizations struggle to balance performance requirements with the rich, interactive experiences that define modern digital brands. The challenge lies not in choosing between performance and aesthetics, but in architecting systems that deliver both without compromise.
+          </p>
+          <p class="text-sub-gray-2 leading-relaxed mb-6">
+            Core Web Vitals have become the standard by which web performance is measured, focusing on loading speed, interactivity, and visual stability. Achieving scores of 99+ across these metrics requires a holistic approach that encompasses everything from initial architecture decisions to ongoing optimization strategies. Our approach to high-performance web architecture prioritizes performance from the ground up, treating it as a foundational requirement rather than an afterthought optimization.
+          </p>
+          <p class="text-sub-gray-2 leading-relaxed mb-8">
+            The economics of performance optimization make a compelling case for investment. Research consistently shows that even sub-second improvements in page load times can significantly impact conversion rates, user engagement, and search visibility. For e-commerce platforms, lead generation sites, and content-driven experiences, these performance improvements translate directly to revenue growth and competitive advantage. The technical investment in performance architecture pays dividends across the entire user journey.
+          </p>
+        </div>
+
+        <div class="reveal-fade-up delay-100">
+          <h2 class="type-h2 text-agency-black-2 mb-6">Architecture Patterns for Sub-Second Performance</h2>
+          <p class="text-sub-gray-2 leading-relaxed mb-6">
+            Achieving sub-second page loads requires architectural decisions that minimize the distance between user request and content delivery. We employ a multi-layered approach that combines edge computing, intelligent caching strategies, and optimized asset delivery to ensure rapid initial page loads and sustained performance throughout the user journey.
+          </p>
+          <p class="text-sub-gray-2 leading-relaxed mb-6">
+            Content Delivery Networks (CDNs) form the foundation of our performance architecture, serving static assets from edge locations worldwide. This geographic distribution reduces latency by delivering content from servers physically closer to users. We optimize CDN configuration with aggressive caching headers, image optimization pipelines, and lazy loading strategies to maximize the effectiveness of edge delivery while ensuring content freshness and consistency.
+          </p>
+          <p class="text-sub-gray-2 leading-relaxed mb-6">
+            Server-side rendering and static site generation represent critical performance optimization techniques, particularly for content-heavy experiences. By pre-rendering content at build time or request time, we eliminate the JavaScript execution overhead that can delay initial content rendering. Our hybrid approach intelligently applies SSR, SSG, and client-side rendering based on content characteristics and user interaction patterns, optimizing the balance between initial load performance and dynamic functionality.
+          </p>
+          <p class="text-sub-gray-2 leading-relaxed mb-8">
+            Code splitting and lazy loading prevent unnecessary JavaScript from impacting initial page load performance. We architect applications into logical chunks that load on-demand, ensuring that users only download the code required for their current interaction. This granular approach to code delivery, combined with tree-shaking to eliminate unused code, significantly reduces initial payload sizes while maintaining full application functionality.
+          </p>
+        </div>
+
+        <div class="reveal-fade-up delay-200">
+          <h2 class="type-h2 text-agency-black-2 mb-6">Image and Asset Optimization Strategies</h2>
+          <p class="text-sub-gray-2 leading-relaxed mb-6">
+            Images typically represent the largest component of page weight, making their optimization critical for performance. Our approach combines modern image formats, responsive delivery, and intelligent loading strategies to minimize image impact on page load times while maintaining visual quality and aesthetic standards.
+          </p>
+          <p class="text-sub-gray-2 leading-relaxed mb-6">
+            We employ next-generation image formats like WebP and AVIF, which offer superior compression ratios compared to traditional JPEG and PNG formats. Our image optimization pipeline automatically generates multiple format variants and delivers the most efficient format supported by the user's browser. This adaptive approach ensures optimal compression without compatibility concerns or visual degradation.
+          </p>
+          <p class="text-sub-gray-2 leading-relaxed mb-6">
+            Responsive image delivery serves appropriately sized images based on device capabilities and viewport dimensions. Using the srcset attribute and picture element, we provide multiple image resolutions and allow browsers to select the optimal size for their specific context. This prevents mobile devices from downloading desktop-sized images and eliminates wasted bandwidth while ensuring sharp, properly scaled images across all devices.
+          </p>
+          <p class="text-sub-gray-2 leading-relaxed mb-8">
+            Lazy loading defers image loading until images enter the viewport, preventing off-screen images from delaying initial page render. We implement lazy loading with the native loading="lazy" attribute for broad browser support, combined with intersection observer JavaScript for enhanced control and fallback support. This strategy prioritizes above-the-fold content loading while ensuring smooth, progressive image loading as users scroll.
+          </p>
+        </div>
+
+        <div class="reveal-fade-up delay-300">
+          <h2 class="type-h2 text-agency-black-2 mb-6">Typography and Rendering Optimization</h2>
+          <p class="text-sub-gray-2 leading-relaxed mb-6">
+            Typography represents a critical component of web performance and user experience. Poor font loading strategies can cause visible layout shifts and delayed text rendering, negatively impacting both Core Web Vitals scores and user perception. Our typography optimization approach ensures rapid, stable text rendering while maintaining the sophisticated typography that defines premium digital experiences.
+          </p>
+          <p class="text-sub-gray-2 leading-relaxed mb-6">
+            Font subsetting reduces font file sizes by including only the characters actually used in the design. Our build process analyzes character usage across the application and generates optimized font subsets that typically reduce file sizes by 60-80% compared to full font files. This significant reduction directly improves load times while maintaining complete character coverage for the application's content.
+          </p>
+          <p class="text-sub-gray-2 leading-relaxed mb-6">
+            The font-display CSS property controls how fonts are loaded and rendered, with trade-offs between performance and visual consistency. We typically use font-display: swap for body text to ensure immediate text rendering with fallback fonts, while using font-display: optional for headings to prevent flash of unstyled text while maintaining premium typography. This strategic approach balances performance with visual polish across different text hierarchies.
+          </p>
+          <p class="text-sub-gray-2 leading-relaxed mb-8">
+            Critical CSS extraction identifies and inlines the CSS required for above-the-fold content, eliminating render-blocking requests for non-critical styles. Our build process analyzes the critical rendering path and generates optimized critical CSS that loads immediately, while deferring non-critical stylesheets. This ensures that users see styled content immediately while still loading the complete stylesheet for the full experience.
+          </p>
+        </div>
+
+        <div class="reveal-fade-up delay-400">
+          <h2 class="type-h2 text-agency-black-2 mb-6">JavaScript Performance and Bundle Optimization</h2>
+          <p class="text-sub-gray-2 leading-relaxed mb-6">
+            JavaScript represents both the engine of interactivity and a potential performance bottleneck. Our JavaScript optimization strategy focuses on minimizing execution time, reducing bundle sizes, and ensuring efficient resource utilization without sacrificing the rich interactions that define modern web experiences.
+          </p>
+          <p class="text-sub-gray-2 leading-relaxed mb-6">
+            Tree shaking eliminates dead code from JavaScript bundles by analyzing the dependency graph and removing unused exports. Our build process performs aggressive tree shaking at both the module and library level, ensuring that only code actually executed by the application is included in the final bundle. This optimization can reduce bundle sizes by 30-50% in typical applications, directly improving load times and execution performance.
+          </p>
+          <p class="text-sub-gray-2 leading-relaxed mb-6">
+          Code splitting divides the application into logical chunks that load on-demand based on user interaction and routing. We implement route-based splitting for navigation chunks and component-based splitting for heavy UI components. This granular approach ensures that users only download the JavaScript required for their current context, significantly reducing initial payload sizes while maintaining full application functionality.
+          </p>
+          <p class="text-sub-gray-2 leading-relaxed mb-8">
+            Web Workers enable off-main-thread execution of computationally intensive tasks, preventing JavaScript execution from blocking the main thread and degrading user experience. We strategically employ Web Workers for data processing, image manipulation, and complex calculations that would otherwise impact UI responsiveness. This approach maintains smooth, responsive interfaces even during heavy computational workloads.
+          </p>
+        </div>
+
+        <div class="reveal-fade-up delay-500">
+          <h2 class="type-h2 text-agency-black-2 mb-6">Monitoring and Continuous Optimization</h2>
+          <p class="text-sub-gray-2 leading-relaxed mb-6">
+            Performance optimization is not a one-time effort but an ongoing discipline. We implement comprehensive monitoring and measurement systems that track Core Web Vitals, resource loading patterns, and user experience metrics across the application lifecycle. This data-driven approach enables continuous optimization and ensures that performance standards are maintained as applications evolve.
+          </p>
+          <p class="text-sub-gray-2 leading-relaxed mb-6">
+            Real User Monitoring (RUM) captures actual performance data from real users across diverse devices, networks, and geographic locations. This provides authentic performance insights that complement lab-based testing and reveal optimization opportunities that synthetic testing might miss. We analyze RUM data to identify performance regressions, understand device-specific performance patterns, and prioritize optimization efforts based on actual user impact.
+          </p>
+          <p class="text-sub-gray-2 leading-relaxed mb-8">
+            Performance budgets establish quantitative limits for key performance metrics, preventing regressions as applications evolve. We define budgets for bundle sizes, image weights, and loading times, integrating these checks into our build and deployment processes. When budgets are exceeded, builds fail or warnings are triggered, ensuring that performance standards are maintained throughout the development lifecycle rather than degraded through incremental changes.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- CTA Section -->
+      <div class="mt-16 p-8 rounded-xl bg-agency-black-1 text-white reveal-fade-up">
+        <h3 class="font-montserrat font-bold text-2xl mb-4">Ready to Build a High-Performance Website?</h3>
+        <p class="text-sub-gray-4 mb-6">
+          Our team specializes in building bespoke websites that achieve 99+ Core Web Vitals while delivering stunning visual experiences.
+        </p>
+        <a href="../lets-talk" class="default-button theme-white inline-flex" data-cursor="hover">
+          <span class="btn-text-roll">
+            <span class="btn-text-main">Start Your Web Project</span>
+            <span class="btn-text-hover">Start Your Web Project</span>
+          </span>
+          <span class="circle-fill"></span>
+          <span class="icon-wrap">
+            <span class="plus-icon"></span>
+          </span>
+        </a>
+      </div>
+
+      <!-- Related Articles -->
+      <div class="mt-20">
+        <h3 class="type-h3 text-agency-black-2 mb-8">Related Insights</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <a href="insights/custom-erp-vs-saas" class="p-6 rounded-lg bg-agency-gray border border-black/5 hover:border-black/20 hover:shadow-xl transition-all duration-300 group" data-cursor="hover">
+            <span class="text-xs font-bold tracking-wider text-agency-red uppercase block mb-2">Enterprise ERP Strategy</span>
+            <h4 class="font-montserrat font-bold text-lg text-agency-black-2 group-hover:text-agency-red transition-colors mb-2">Custom Enterprise ERP vs. Generic Off-The-Shelf SaaS</h4>
+            <p class="text-sm text-sub-gray-2">Why high-velocity enterprises are choosing custom-built ERP systems over generic SaaS solutions.</p>
+          </a>
+          <a href="insights/event-driven-pipelines" class="p-6 rounded-lg bg-agency-gray border border-black/5 hover:border-black/20 hover:shadow-xl transition-all duration-300 group" data-cursor="hover">
+            <span class="text-xs font-bold tracking-wider text-agency-red uppercase block mb-2">Software Architecture</span>
+            <h4 class="font-montserrat font-bold text-lg text-agency-black-2 group-hover:text-agency-red transition-colors mb-2">Architecting Scalable Web Software: Event-Driven Pipelines</h4>
+            <p class="text-sm text-sub-gray-2">Inside the backend engineering behind mission-critical web applications and robust security.</p>
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-16 px-6 md:px-12 bg-agency-black-2 text-white border-t border-white/10" data-theme="dark">
+    <div
+      class="max-w-desktop mx-auto flex flex-col md:flex-row items-center justify-between gap-8 text-xs text-sub-gray-3">
+      <div class="flex items-center gap-3">
+        <span class="font-montserrat font-black text-lg text-white">LLCG<span class="text-agency-red">.</span></span>
+        <span>&copy; <span data-current-year>2026</span> LLCG Team Studio. All Rights Reserved. Fulbari, Dinajpur,
+          BD.</span>
+      </div>
+      <div class="flex items-center space-x-6 uppercase tracking-wider font-semibold">
+        <a href="../work" class="hover:text-agency-red transition-colors" data-cursor="hover">Work</a>
+        <a href="../services" class="hover:text-agency-red transition-colors" data-cursor="hover">Services</a>
+        <a href="../about" class="hover:text-agency-red transition-colors" data-cursor="hover">About</a>
+        <a href="../lets-talk" class="hover:text-agency-red transition-colors" data-cursor="hover">Contact</a>
+      </div>
+    </div>
+    
+    <div class="max-w-desktop mx-auto mt-8 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-sub-gray-4">
+      <div class="flex items-center gap-4">
+        <a href="mailto:mail.llcgteam@gmail.com" class="hover:text-agency-red transition-colors" data-cursor="hover">mail.llcgteam@gmail.com</a>
+        <span>•</span>
+        <a href="https://wa.me/8801303755748" target="_blank" rel="noopener" class="hover:text-agency-red transition-colors" data-cursor="hover">+880 1303-755748</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="custom-erp-vs-saas.html" class="hover:text-agency-red transition-colors" data-cursor="hover">ERP Insights</a>
+        <a href="modern-web-playbook.html" class="hover:text-agency-red transition-colors" data-cursor="hover">Web Performance</a>
+        <a href="event-driven-pipelines.html" class="hover:text-agency-red transition-colors" data-cursor="hover">Software Architecture</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sticky Bottom-Right Scroll Indicator -->
+  <aside class="scroll-label" aria-hidden="true">
+    <div class="scroll-line"></div>
+    <span class="text-[9px] tracking-[0.3em] text-sub-gray-2">SCROLL</span>
+  </aside>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/router.js"></script>
+</body>
+</html>
