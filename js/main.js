@@ -228,6 +228,26 @@
         $coverAddress.html(agency.address.replace(', ', '<br>'));
       }
     }
+
+    // 4. Highlight active page in Mobile Bottom Navigation
+    const $mobileNav = $('#mobileBottomNav');
+    if ($mobileNav.length) {
+      $mobileNav.find('.mobile-nav-item').removeClass('is-active');
+      $mobileNav.find('.mobile-nav-item').each(function () {
+        const pageKey = $(this).attr('data-page');
+        let isPageActive = false;
+        if (pageKey === 'home') {
+          isPageActive = (cleanCurrent === '/' || cleanCurrent === basePath || cleanCurrent === basePath + '/');
+        } else if (pageKey === 'contact') {
+          isPageActive = cleanCurrent.endsWith('/lets-talk') || cleanCurrent.endsWith('lets-talk');
+        } else if (pageKey) {
+          isPageActive = cleanCurrent.endsWith('/' + pageKey) || cleanCurrent.endsWith(pageKey);
+        }
+        if (isPageActive) {
+          $(this).addClass('is-active');
+        }
+      });
+    }
   }
 
   window.renderNavigation = renderNavigation;
@@ -460,6 +480,20 @@
     let ticking = false;
 
     function updateServices() {
+      if (window.innerWidth < 1024) {
+        $cards.each(function () {
+          const cardEl = this;
+          const keyImageEl = cardEl.querySelector('.key-image');
+          if (keyImageEl) keyImageEl.style.clipPath = '';
+          cardEl.style.opacity = '';
+          cardEl.style.visibility = '';
+          cardEl.style.pointerEvents = '';
+          cardEl.style.zIndex = '';
+        });
+        ticking = false;
+        return;
+      }
+
       const scrollY = window.scrollY;
       const trackTop = $track.offset().top;
       const trackHeight = $track.outerHeight() - window.innerHeight;
@@ -891,6 +925,22 @@
   }
 
   /* ============================================================
+     8G. NATIVE MOBILE APP BOTTOM NAVIGATION
+  ============================================================ */
+  function initMobileBottomNav() {
+    // Navigation items link directly to pages; active status is updated via renderNavigation()
+    const $nav = $('#mobileBottomNav');
+    if (!$nav.length) return;
+
+    // Active item feedback animation on touch
+    $nav.on('touchstart mousedown', '.mobile-nav-item', function () {
+      $(this).addClass('scale-95');
+    }).on('touchend mouseup touchcancel mouseleave', '.mobile-nav-item', function () {
+      $(this).removeClass('scale-95');
+    });
+  }
+
+  /* ============================================================
      PAGE LIFECYCLE RE-INITIALIZATION (FOR SPA ROUTING)
   ============================================================ */
   function initPageFeatures() {
@@ -905,6 +955,7 @@
     initFaqAccordion();
     initDynamicYear();
     initWorkFilter();
+    initMobileBottomNav();
     $(window).trigger('scroll');
   }
 
