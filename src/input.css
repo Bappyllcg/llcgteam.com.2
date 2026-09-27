@@ -2772,3 +2772,98 @@ html.lenis body {
     height: 34px !important;
   }
 }
+/* RESPONSIVE CSS ----------------------------------------------------- */
+@media (max-width: 1440px) {
+  /* Home Banner Section ---------- */
+  .hero-monumental-letters .monument-char {
+      font-size: clamp(239px, 19vh, 260px);
+  }
+  .section-works {
+      padding: 80px 0;
+  }
+}
+/* End 1440 */
+@media (max-width: 1200px) {
+  /* Home banner Section  */
+  .section-hero {
+      padding-top: 150px;
+      padding-bottom: 80px;
+      min-height: unset;
+      height: auto;
+  }
+  .hero-monumental-letters .monument-char {
+      font-size: clamp(185px, 19vh, 260px);
+  }
+  .section-works {
+      padding: 50px 0;
+  }
+  .works-head {
+      margin-bottom: 50px;
+  }
+  .hero-orbit-circle {
+      width: 500px;
+      height: 500px;
+  }
+}
+/* End 1200 */
+@media (max-width: 992px) {
+  /* Home Banner Seciton  */
+  .section-hero {
+      padding-top: 130px;
+      padding-bottom: 50px;
+  }
+  .hero-description {
+      margin-bottom: 30px;
+  }
+  .hero-monumental-letters .monument-char {
+      font-size: 146px;
+  }
+  .type-h1 {
+      font-size: 46px;
+      line-height: 1.2;
+  }
+  .type-sub2 {
+      font-size: 26px;
+      line-height: 1.5;
+  }
+}
+/* End 992 */
+@media (max-width: 768px) {
+  /* Home banner Section  */
+  .section-hero {
+      padding-top: 100px;
+  }
+  .type-h1 {
+      font-size: 34px;
+  }
+  #contact {
+      padding: 40px 15px !important;
+  }
+  .works-list {
+      margin-bottom: 0;
+  }
+}
+/* End 768 */
+@media (max-width: 576px) {
+  .type-h1 {
+      font-size: 32px;
+  }
+  #contact h2 {
+      line-height: 1.5 !important;
+  }
+  #manifesto .type-sub2 {
+      font-size: 16px !important;
+      line-height: 1.7 !important;
+  }
+  .about-banner .type-sub2 {
+      font-size: 16px;
+  }
+  .cover-menu .menu-nav-link {
+      font-size: 24px;
+      padding: 0;
+  }
+  .cover-menu .menu-nav-link .numbering {
+      display: none;
+  }
+}
+/* End 576 */
