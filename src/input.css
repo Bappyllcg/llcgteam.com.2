@@ -2867,3 +2867,10 @@ html.lenis body {
   }
 }
 /* End 576 */
+@media (max-width: 425px) {
+  a.btn-whatsapp-primary {
+      font-size: 14px !important;
+      letter-spacing: 0;
+  }
+}
+/* End 425 */

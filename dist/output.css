@@ -4888,6 +4888,15 @@ html.lenis body {
 
 /* End 576 */
 
+@media (max-width: 425px) {
+  a.btn-whatsapp-primary {
+    font-size: 14px !important;
+    letter-spacing: 0;
+  }
+}
+
+/* End 425 */
+
 .selection\:bg-agency-red *::-moz-selection{
   --tw-bg-opacity: 1;
   background-color: rgb(248 69 37 / var(--tw-bg-opacity, 1));
@@ -5148,14 +5157,14 @@ html.lenis body {
     padding-bottom: 2.5rem;
   }
 
-  .sm\:py-20{
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-  }
-
   .sm\:py-16{
     padding-top: 4rem;
     padding-bottom: 4rem;
+  }
+
+  .sm\:py-20{
+    padding-top: 5rem;
+    padding-bottom: 5rem;
   }
 
   .sm\:pb-20{
